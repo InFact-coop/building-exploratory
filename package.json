@@ -1,0 +1,32 @@
+{
+  "name": "building-exploratory",
+  "version": "1.0.0",
+  "description": "App for accessing the listed buildings in the borough of Islington",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/InFact-coop/building-exploratory.git"
+  },
+  "keywords": [
+    "graphql",
+    "express",
+    "react"
+  ],
+  "author": "sohilpandya jessicasalmon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/InFact-coop/building-exploratory/issues"
+  },
+  "homepage": "https://github.com/InFact-coop/building-exploratory#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "express-graphql": "^0.6.11",
+    "graphql": "^0.11.7",
+    "mongoose": "^4.13.2",
+    "tabletop": "^1.5.2"
+  }
+}

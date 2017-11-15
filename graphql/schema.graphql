@@ -1,0 +1,19 @@
+type Building {  
+  street_number: String,
+  street_name: String,
+  postcode: String,
+  ward: String,
+  conservation_area: String,
+  date_built_actual: String,
+  date_built_estimate: String,
+  building_type: String,
+  current_use: String,
+  description: String,
+  date_local_listing: String,
+  significance: String,
+  recommendation: String
+}
+
+type Query {
+  getBuildings: [Building]
+}
