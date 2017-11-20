@@ -24,7 +24,9 @@ const islingtonSchema = new Schema({
   description: String,
   date_local_listing: String,
   significance: String,
-  recommendation: String
+  recommendation: String,
+  latitude: String,
+  longitude: String
 });
 
 const Islington = mongoose.model("Islington", islingtonSchema);

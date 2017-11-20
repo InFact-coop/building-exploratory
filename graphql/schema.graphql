@@ -1,4 +1,4 @@
-type Building {  
+type Building {
   street_number: String,
   street_name: String,
   postcode: String,
@@ -11,7 +11,9 @@ type Building {
   description: String,
   date_local_listing: String,
   significance: String,
-  recommendation: String
+  recommendation: String,
+  latitude: String,
+  longitude: String
 }
 
 type Query {
