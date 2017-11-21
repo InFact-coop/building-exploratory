@@ -47,13 +47,28 @@ class App extends Component {
   }
 }
 
-const query = gql`{
-  getBuildings {
-    significance
-    latitude
-    longitude
+const query = gql`
+  {
+    getBuildings {
+      street_number
+      street_name
+      postcode
+      ward
+      conservation_area
+      date_built_actual
+      date_built_estimate
+      architectural_style
+      building_type
+      current_use
+      description
+      date_local_listing
+      significance
+      recommendation
+      latitude
+      longitude
+    }
   }
-}`
+`;
 const AppContainer = graphql(query)(App);
 
 export default AppContainer;

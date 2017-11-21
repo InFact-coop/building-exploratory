@@ -20,6 +20,7 @@ const islingtonSchema = new Schema({
   conservation_area: String,
   date_built_actual: String,
   date_built_estimate: String,
+  architectural_style: String,
   building_type: String,
   current_use: String,
   description: String,
