@@ -11,7 +11,9 @@ class App extends Component {
       buildings: props.data.getBuildings,
       building: {},
       error: props.data.error,
-      loading: props.data.loading
+      loading: props.data.loading,
+      mapCenter: [-0.1058, 51.5465],
+      mapZoom: [11.7]
     }
   }
 
@@ -28,22 +30,23 @@ class App extends Component {
   }
 
    buildingDetails = (clickHandlerObj, building) => {
+     // user clicked a point
+     // update state for a single building
+
     this.setState({
-      building: building
+      building: building,
+      mapCenter: [building.longitude, building.latitude],
+      mapZoom: [15.5]
     })
   }
 
   render() {
-    console.log(this.state, '<<<<')
-    return (
-      <div>
-        <Map
-        buildings={ this.state.buildings }
-        handleBuildingDetails={ this.buildingDetails } />
-        <BuildingDetails
-        building={ this.state.building }/>
-      </div>
-    );
+    return <div>
+        <Map 
+        {...this.state} 
+        handleBuildingDetails={this.buildingDetails} / >
+        <BuildingDetails building={this.state.building} />
+      </div>;
   }
 }
 
