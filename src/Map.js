@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactMapboxGL, { Layer, Feature } from 'react-mapbox-gl';
 
-const Map = ({ buildings }) => {
+const Map = ({ buildings, handleBuildingDetails }) => {
   const Mapbox = ReactMapboxGL({
     accessToken: 'pk.eyJ1Ijoic29oaWxwYW5keWEiLCJhIjoiY2phODdiMnM1MDQybjMycGZ3ZTE0d3RsOCJ9.4WBBpoMgECNDbRL4BahGhQ'
   });
@@ -10,7 +10,7 @@ const Map = ({ buildings }) => {
   const allMarkers = buildings && buildings.map((building) => {
     return <Feature
     coordinates={[building.longitude, building.latitude]}
-    // onClick={ (obj) => { console.log(obj, building); handleShowingCard({ ...obj, ...building}); }}
+    onClick={ (obj) => { console.log(obj, building); handleBuildingDetails(obj, building); }}
     />;
   });
 
