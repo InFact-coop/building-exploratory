@@ -1,6 +1,7 @@
+require("env2")("./config.env");
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const DB_URI = "mongodb://localhost/islingtonlocallist";
+const DB_URI = process.env.MONGO_DB_URI;
 
 mongoose.Promise = global.Promise;
 

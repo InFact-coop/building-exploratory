@@ -47,7 +47,8 @@
   },
   "devDependencies": {
     "concurrently": "^3.5.0",
-    "nodemon": "^1.12.1"
+    "nodemon": "^1.12.1",
+    "env2": "^2.2.0"
   },
   "proxy": "http://localhost:4000"
 }
