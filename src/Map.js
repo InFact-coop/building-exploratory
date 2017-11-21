@@ -42,18 +42,13 @@ class LayerContainer extends Component {
       return buildingObj.longitude != building.longitude && buildingObj.latitude != building.latitude
     });
 
-    console.log(unselectedBuildings);
-
     const selectedBuilding = buildings && buildings.filter((buildingObj) => {
       return buildingObj.longitude === building.longitude && buildingObj.latitude === building.latitude
     })
-    console.log(selectedBuilding);
 
     const allMarkers = buildings && unselectedBuildings.map((buildingObj, i) => {
-      console.log('WE ARE INB ALL MARKERS')
 
       if (building && buildingObj.longitude != building.longitude && buildingObj.latitude != building.latitude) {
-        console.log(this.props, 'inside all markers')        
       return (
         <Feature
         key={i}
@@ -65,10 +60,7 @@ class LayerContainer extends Component {
       }
     });
     const selectedMarkers = buildings && selectedBuilding.map((buildingObj, i) => {
-      console.log('WE ARE INB ALL MARKERS')
-
       if (building && buildingObj.longitude != building.longitude && buildingObj.latitude != building.latitude) {
-        console.log(this.props, 'inside selected markers')
       return (
         <Feature
         key={i}
