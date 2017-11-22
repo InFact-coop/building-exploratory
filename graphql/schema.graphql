@@ -13,8 +13,8 @@ type Building {
   date_local_listing: String,
   significance: String,
   recommendation: String,
-  latitude: String,
-  longitude: String
+  latitude: Float,
+  longitude: Float
 }
 
 type Query {
