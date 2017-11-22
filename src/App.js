@@ -4,6 +4,9 @@ import gql from 'graphql-tag';
 import Map from './Map.js';
 import BuildingDetails from './BuildingDetails.js';
 
+const mapCenter = [-0.1058, 51.5465];
+const mapZoom = [11.7];
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -12,15 +15,16 @@ class App extends Component {
       building: {},
       error: props.data.error,
       loading: props.data.loading,
-      mapCenter: [-0.1058, 51.5465],
-      mapZoom: [11.7]
+      mapCenter: mapCenter,
+      mapZoom: mapZoom
     }
   }
+
 
   // check if the next prop loading === false
   // if false, update the state
   componentWillUpdate(nextProps, nextState) {
-    if (nextProps.data.loading === false && !nextState.buildings) {
+    if (!nextProps.data.loading && !nextState.buildings) {
       this.setState({
         buildings: nextProps.data.getBuildings,
         error: nextProps.data.error,
