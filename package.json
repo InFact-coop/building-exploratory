@@ -3,11 +3,15 @@
   "version": "1.0.0",
   "description": "App for accessing the listed buildings in the borough of Islington",
   "main": "server.js",
+  "engines": {
+    "node": "8.6.0",
+    "npm": "5.5.1"
+  },
   "scripts": {
     "test": "NODE_PATH=src/ react-scripts test --env=jsdom",
     "start": "node server.js",
-    "start-back": "nodemon server.js",
-    "start-front": "NODE_PATH=src/ react-scripts start",
+    "start:back": "nodemon server.js",
+    "start:front": "NODE_PATH=src/ react-scripts start",
     "build": "NODE_PATH=src/ react-scripts build",
     "eject": "react-scripts eject",
     "start:dev": "concurrently \"npm run start-back\" \"npm run start-front\""
