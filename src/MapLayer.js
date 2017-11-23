@@ -1,9 +1,9 @@
 import React from 'react';
 import { Layer, Feature } from 'react-mapbox-gl';
 
-const MapLayer = ({ buildings, building, handleBuildingDetails }) => {
+const MapLayer = ({ buildings = [], building, handleBuildingDetails }) => {
 
-  const allMarkers = buildings && buildings.map((buildingObj, i) => {
+  const allMarkers = buildings.map((buildingObj, i) => {
     return (
       <Feature
         key={i}

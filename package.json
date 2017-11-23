@@ -14,7 +14,7 @@
     "start:front": "NODE_PATH=src/ react-scripts start",
     "build": "NODE_PATH=src/ react-scripts build",
     "eject": "react-scripts eject",
-    "start:dev": "concurrently \"npm run start-back\" \"npm run start-front\""
+    "start:dev": "concurrently \"npm run start:back\" \"npm run start:front\""
   },
   "repository": {
     "type": "git",
