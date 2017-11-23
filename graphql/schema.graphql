@@ -14,7 +14,10 @@ type Building {
   significance: String,
   recommendation: String,
   latitude: Float,
-  longitude: Float
+  longitude: Float,
+  image_main: String,
+  image_second: String,
+  image_third: String
 }
 
 type Query {

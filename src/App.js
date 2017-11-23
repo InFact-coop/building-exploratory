@@ -45,6 +45,7 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.state.buildings)
     return <div>
         <Map 
         {...this.state} 
@@ -73,6 +74,9 @@ const query = gql`
       recommendation
       latitude
       longitude
+      image_main
+      image_second
+      image_third
     }
   }
 `;

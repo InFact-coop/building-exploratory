@@ -16,7 +16,10 @@ const createDataObj = (data) => {
       significance: item['Significance Statement'],
       recommendation: item['Recommendation'],
       latitude: item['Latitude'],
-      longitude: item['Longitude']
+      longitude: item['Longitude'],
+      image_main: item['Image Main'],
+      image_second: item['Image Second'],
+      image_third: item['Image Third']
     };
   });
 }
