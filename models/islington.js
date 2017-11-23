@@ -20,12 +20,15 @@ const islingtonSchema = new Schema({
   conservation_area: String,
   date_built_actual: String,
   date_built_estimate: String,
+  architectural_style: String,
   building_type: String,
   current_use: String,
   description: String,
   date_local_listing: String,
   significance: String,
-  recommendation: String
+  recommendation: String,
+  latitude: Number,
+  longitude: Number
 });
 
 const Islington = mongoose.model("Islington", islingtonSchema);

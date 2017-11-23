@@ -12,11 +12,9 @@ const migrate = () => {
   tabletop.init({ 
     key: process.env.GOOGLE_SPREADSHEET_KEY,
     callback: showInfo,
-    simpleSheet: true
+    simpleSheet: true,
+    parseNumbers: true
   });
 };
 
 migrate();
-
-
-
