@@ -2,7 +2,7 @@ import React from 'react';
 
 
 const BuildingDetails = ({ building }) => {
-  const { 
+  const {
     street_number,
     street_name,
     postcode,

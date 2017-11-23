@@ -46,12 +46,19 @@ class App extends Component {
 
   render() {
     console.log(this.state.buildings)
-    return <div>
-        <Map 
-        {...this.state} 
-        handleBuildingDetails={this.buildingDetails} / >
-        <BuildingDetails building={this.state.building} />
-      </div>;
+    return (
+      <div>
+        <div className="fl w-50 pa2">
+          <Map
+            {...this.state}
+            handleBuildingDetails={this.buildingDetails} / >
+        </div>
+        <div className="fl w-50 pa2">
+            {/* logic here to display either list view or detailed view*/}
+          <BuildingDetails building={this.state.building} />
+        </div>
+      </div>
+    );
   }
 }
 
