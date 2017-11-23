@@ -81,9 +81,11 @@ const query = gql`
       recommendation
       latitude
       longitude
-      image_main
-      image_second
-      image_third
+      featured_image
+      second_image
+      third_image
+      fourth_image
+      fifth_image
     }
   }
 `;

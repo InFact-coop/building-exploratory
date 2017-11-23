@@ -29,9 +29,11 @@ const islingtonSchema = new Schema({
   recommendation: String,
   latitude: Number,
   longitude: Number,
-  image_main: String,
-  image_second: String,
-  image_third: String
+  featured_image: String,
+  second_image: String,
+  third_image: String,
+  fourth_image: String,
+  fifth_image: String
 });
 
 const Islington = mongoose.model("Islington", islingtonSchema);

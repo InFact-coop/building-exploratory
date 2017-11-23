@@ -15,9 +15,11 @@ type Building {
   recommendation: String,
   latitude: Float,
   longitude: Float,
-  image_main: String,
-  image_second: String,
-  image_third: String
+  featured_image: String,
+  second_image: String,
+  third_image: String,
+  fourth_image: String,
+  fifth_image: String
 }
 
 type Query {

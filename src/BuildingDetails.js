@@ -19,9 +19,12 @@ const BuildingDetails = ({ building }) => {
     recommendation,
     latitude,
     longitude,
-    image_main,
-    image_second,
-    image_third } = building
+    featured_image,
+    second_image,
+    third_image,
+    fourth_image,
+    fifth_image
+   } = building
 
   return (
     <div>
@@ -40,9 +43,11 @@ const BuildingDetails = ({ building }) => {
       <div> { date_local_listing } </div>
       <div> { significance } </div>
       <div> { recommendation } </div>
-      <img src={ image_main } />
-      <img src={ image_second } />
-      <img src={ image_third } />
+      <img src={ featured_image } />
+      <img src={ second_image } />
+      <img src={ third_image } />
+      <img src={ fourth_image } />
+      <img src={ fifth_image } />
     </div>
   );
 };
