@@ -2,7 +2,7 @@ import React from 'react';
 
 const Nav = () => {
   return (
-    <nav className="float w-100 flex justify-between items-center bb b--purple bw1">
+    <nav className="float w-100 h3 flex justify-between items-center bb b--purple bw1">
       <div className="flex items-center">
       <div className="h3 w3 bg-purple">
         Logo

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ReactMapboxGL from 'react-mapbox-gl';
+import ReactMapboxGL, {ZoomControl} from 'react-mapbox-gl';
 import MapLayer from './MapLayer';
 
 const Mapbox = ReactMapboxGL({
@@ -19,8 +19,9 @@ class Map extends Component {
       style="mapbox://styles/sohilpandya/cja87dmin0ct62sl4jxyo4tzp"
       center={ mapCenter }
       zoom={ mapZoom }
-      containerStyle={{ height: "93vh", width: "100%" }}
+      containerStyle={{ height: "100%", width: "100%" }}
       movingMethod={'flyTo'}>
+        <ZoomControl />
         <MapLayer
           { ...this.props }
           />

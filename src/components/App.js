@@ -7,7 +7,7 @@ import Nav from './Nav';
 import BuildingsList from './BuildingsList';
 
 const mapCenter = [-0.1058, 51.5465];
-const mapZoom = [11.7];
+const mapZoom = [12];
 
 class App extends Component {
   constructor(props) {
@@ -18,7 +18,8 @@ class App extends Component {
       error: props.data.error,
       loading: props.data.loading,
       mapCenter: mapCenter,
-      mapZoom: mapZoom
+      mapZoom: mapZoom,
+      buildingHover: {}
     }
   }
 
@@ -35,28 +36,46 @@ class App extends Component {
     }
   }
 
-   buildingDetails = (clickHandlerObj, building) => {
+
+
+
+   buildingDetails = (eventHandler, building) => {
+     console.log('you called me.....')
      // user clicked a point
      // update state for a single building
-
-    this.setState({
-      building: building,
-      mapCenter: [building.longitude, building.latitude],
-      mapZoom: [15.5]
-    })
+    if (eventHandler === 'onClick') {
+      this.setState({
+        building: building,
+        mapCenter: [building.longitude, building.latitude],
+        mapZoom: [15.5]
+      })
+    } else if (eventHandler === 'onMouseEnter') {
+      console.log('hellooo')
+      this.setState(
+        { buildingHover: building }, () => { console.log('new state', this.state.buildingHover); }
+      )
+    } else if (eventHandler === 'onMouseLeave') {
+      this.setState(
+        { buildingHover: {} }, () => { console.log('new state', this.state.buildingHover); })
+    }
   }
 
+
   render() {
-    console.log(this.state.buildings)
+    console.log(this.state.buildingHover)
     return (
       <div>
         <Nav />
-        <div className="fl w-50">
+        <div 
+          className="fl w-50"
+          style={{ height: "calc(100vh - 4rem)"}}>
           <Map
             {...this.state}
             handleBuildingDetails={this.buildingDetails} / >
         </div>
-        <div className="fl w-50 pa2">
+        <div 
+          className="fl w-50 overflow-scroll"
+          style={{ height: "calc(100vh - 4rem)" }}>
             {/* logic here to display either list view or detailed view*/}
             { !this.state.building.significance ?
               <BuildingsList buildings={this.state.buildings}/> :
@@ -71,6 +90,7 @@ class App extends Component {
 const query = gql`
   {
     getBuildings {
+      id
       street_number
       street_name
       postcode

@@ -1,6 +1,7 @@
 const createDataObj = (data) => {
-  return data.map(item => {
+  return data.map((item, i) => {
     return {
+      id: ++i,
       street_number: item['Street Number'],
       street_name: item['Street Name'],
       postcode: item['Post Code'],

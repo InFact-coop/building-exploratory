@@ -13,6 +13,7 @@ mongoose.connect(DB_URI, { useMongoClient: true }).then(db => {
 });
 
 const islingtonSchema = new Schema({
+  id: Number,
   street_number: String,
   street_name: String,
   postcode: String,
