@@ -4,3 +4,8 @@
 body {
   font-family: 'Raleway', sans-serif;
 }
+
+.mapboxgl-map {
+  overflow: visible;
+  opacity: 0.01;
+}
