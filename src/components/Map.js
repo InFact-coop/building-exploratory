@@ -64,9 +64,9 @@ class Map extends Component {
               console.log('entered');
               this._hoveringItem(i);
             }}
-            onClick={(obj) => {
+            onClick={() => {
               console.log('hello')
-              handleBuildingDetails(obj, buildingObj);
+              handleBuildingDetails(buildingObj);
               let longitude = buildingObj.longitude;
               let latitude = buildingObj.latitude;
               this._goToViewport({longitude, latitude});

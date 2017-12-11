@@ -39,46 +39,33 @@ class App extends Component {
 
 
 
-   buildingDetails = (eventHandler, building) => {
-     console.log('you called me.....')
+   buildingDetails = (building) => {
      // user clicked a point
      // update state for a single building
-    if (eventHandler === 'onClick') {
       this.setState({
         building: building,
         mapCenter: [building.longitude, building.latitude],
         mapZoom: [15.5]
       })
-    } else if (eventHandler === 'onMouseEnter') {
-      console.log('hellooo')
-      this.setState(
-        { buildingHover: building }, () => { console.log('new state', this.state.buildingHover); }
-      )
-    } else if (eventHandler === 'onMouseLeave') {
-      this.setState(
-        { buildingHover: {} }, () => { console.log('new state', this.state.buildingHover); })
     }
-  }
-
 
   render() {
-    console.log(this.state.buildingHover)
     return (
       <div>
         <Nav />
-        <div 
+        <div
           className="fl w-50"
           style={{ height: "calc(100vh - 4rem)"}}>
           <Map
             {...this.state}
             handleBuildingDetails={this.buildingDetails} / >
         </div>
-        <div 
+        <div
           className="fl w-50 overflow-scroll"
           style={{ height: "calc(100vh - 4rem)" }}>
             {/* logic here to display either list view or detailed view*/}
             { !this.state.building.significance ?
-              <BuildingsList buildings={this.state.buildings}/> :
+              <BuildingsList buildings={this.state.buildings} /> :
               <BuildingDetails building={this.state.building} />
             }
         </div>
