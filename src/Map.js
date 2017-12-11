@@ -15,11 +15,11 @@ class Map extends Component {
   render() {
     const { buildings, handleBuildingDetails, mapCenter, mapZoom } = this.props;
     return (
-      <Mapbox 
-      style="mapbox://styles/sohilpandya/cja87dmin0ct62sl4jxyo4tzp" 
-      center={ mapCenter } 
-      zoom={ mapZoom } 
-      containerStyle={{ height: "100vh", width: "50vw" }}
+      <Mapbox
+      style="mapbox://styles/sohilpandya/cja87dmin0ct62sl4jxyo4tzp"
+      center={ mapCenter }
+      zoom={ mapZoom }
+      containerStyle={{ height: "100vh", width: "100%" }}
       movingMethod={'flyTo'}>
         <MapLayer
           { ...this.props }

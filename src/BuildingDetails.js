@@ -2,7 +2,7 @@ import React from 'react';
 
 
 const BuildingDetails = ({ building }) => {
-  const { 
+  const {
     street_number,
     street_name,
     postcode,
@@ -18,7 +18,13 @@ const BuildingDetails = ({ building }) => {
     significance,
     recommendation,
     latitude,
-    longitude } = building
+    longitude,
+    featured_image,
+    second_image,
+    third_image,
+    fourth_image,
+    fifth_image
+   } = building
 
   return (
     <div>
@@ -37,6 +43,11 @@ const BuildingDetails = ({ building }) => {
       <div> { date_local_listing } </div>
       <div> { significance } </div>
       <div> { recommendation } </div>
+      <img src={ featured_image } />
+      <img src={ second_image } />
+      <img src={ third_image } />
+      <img src={ fourth_image } />
+      <img src={ fifth_image } />
     </div>
   );
 };

@@ -45,12 +45,20 @@ class App extends Component {
   }
 
   render() {
-    return <div>
-        <Map 
-        {...this.state} 
-        handleBuildingDetails={this.buildingDetails} / >
-        <BuildingDetails building={this.state.building} />
-      </div>;
+    console.log(this.state.buildings)
+    return (
+      <div>
+        <div className="fl w-50 pa2">
+          <Map
+            {...this.state}
+            handleBuildingDetails={this.buildingDetails} / >
+        </div>
+        <div className="fl w-50 pa2">
+            {/* logic here to display either list view or detailed view*/}
+          <BuildingDetails building={this.state.building} />
+        </div>
+      </div>
+    );
   }
 }
 
@@ -73,6 +81,11 @@ const query = gql`
       recommendation
       latitude
       longitude
+      featured_image
+      second_image
+      third_image
+      fourth_image
+      fifth_image
     }
   }
 `;
