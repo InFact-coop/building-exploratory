@@ -7,6 +7,10 @@ import ReactMapGL, { Marker, NavigationControl, FlyToInterpolator } from 'react-
 //   accessToken: 'pk.eyJ1Ijoic29oaWxwYW5keWEiLCJhIjoiY2phODdiMnM1MDQybjMycGZ3ZTE0d3RsOCJ9.4WBBpoMgECNDbRL4BahGhQ'
 // });
 
+import MarkerFilled from './MarkerFilled';
+import MarkerEmpty from './MarkerEmpty';
+
+
 class Map extends Component {
 
   constructor(props) {
@@ -21,7 +25,9 @@ class Map extends Component {
         width: 500,
         height: 500,
       },
-      popupInfo: null
+      popupInfo: null,
+      hovering: false,
+      id: undefined
     };
   }
 
@@ -29,16 +35,23 @@ class Map extends Component {
     this.setState({ viewport });
   }
 
+  _onViewportChange = viewport => this.setState({
+    viewport: { ...this.state.viewport, ...viewport }
+  });
+
   _goToViewport = ({ longitude, latitude }) => {
     this._onViewportChange({
       longitude,
       latitude,
-      zoom: 11,
+      zoom: 15,
       transitionInterpolator: new FlyToInterpolator(),
-      transitionDuration: 3000
+      transitionDuration: 1000
     });
   }
 
+  _hoveringItem = (id) => {
+    this.setState({ hovering: !this.state.hovering, id } )
+  }
 
   render() {
 
@@ -52,19 +65,27 @@ class Map extends Component {
           key={i}
           longitude={buildingObj.longitude}
           latitude={buildingObj.latitude}
-          onClick={(obj) => {
-            handleBuildingDetails(obj, buildingObj);
-          }}
         >
           <div
             onMouseEnter={(obj) => {
               console.log('entered');
+              this._hoveringItem(i);
+            }}
+            onClick={(obj) => {
+              console.log('hello')
+              handleBuildingDetails(obj, buildingObj);
+              let longitude = buildingObj.longitude;
+              let latitude = buildingObj.latitude;
+              this._goToViewport({longitude, latitude});
             }}
             onMouseLeave={(obj) => {
               console.log('left');
+              this._hoveringItem(undefined);
             }}
           >
-          a
+          {
+              this.state.hovering && this.state.id === i ? <MarkerFilled /> : <MarkerEmpty />
+          }
           </div>
         </ Marker>
       );
@@ -75,11 +96,9 @@ class Map extends Component {
           { ...viewport }
           mapboxApiAccessToken={'pk.eyJ1Ijoic29oaWxwYW5keWEiLCJhIjoiY2phODdiMnM1MDQybjMycGZ3ZTE0d3RsOCJ9.4WBBpoMgECNDbRL4BahGhQ'}
           mapStyle='mapbox://styles/sohilpandya/cja87dmin0ct62sl4jxyo4tzp'
-          onViewportChange={this._goToViewport}
+        onViewportChange={this._updateViewport}
         >
         { buildings.length > 0 && allMarkers }
-
-        <NavigationControl onViewportChange={this._updateViewport} />
         </ReactMapGL>
     )
   }
