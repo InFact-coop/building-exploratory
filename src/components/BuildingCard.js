@@ -42,7 +42,7 @@ class BuildingCard extends Component {
         onMouseLeave={() => { this.hoveringCard(); }}
         onClick={() => { this.hoveringCard(); handleBuildingDetails(building); }}>
         <div className={`${this.state.hovering ? 'b--primary-50' : 'b--primary'} bb bw1 pa3`}>
-          <p className="ma0 tc primary b f5 ttc ttl">{building.street_name}</p>
+          <p className="ma0 tc primary b f5 ttc">{building.street_number} {building.street_name}</p>
         </div>
         <div style={imgClass} className="cover bg-center">
         </div>

@@ -9,9 +9,7 @@ class Map extends Component {
 
   constructor(props) {
     super(props);
-
-    console.log((window.innerWidth / 2) - 15) 
-    console.log(window.innerHeight)
+    
     this.state = {
       viewport: {
         latitude: this.props.mapCenter[1],
@@ -20,7 +18,7 @@ class Map extends Component {
         bearing: 0,
         pitch: 0,
         width: ((window.innerWidth / 2)),
-        height: window.innerHeight,
+        height: (window.innerHeight - 64),
       },
       popupInfo: null,
       hovering: false,
@@ -40,7 +38,7 @@ class Map extends Component {
 
   _resize = () => this._onViewportChange({
     width: this.props.width || ((window.innerWidth / 2)),
-    height: this.props.height || window.innerHeight
+    height: this.props.height || (window.innerHeight - 64)
   });
 
   _updateViewport = (viewport) => {

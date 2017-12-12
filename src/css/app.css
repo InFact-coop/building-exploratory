@@ -64,3 +64,8 @@ html {
 .b--primary-50 {
   border-color: var(--primary-color-50);
 }
+
+/* overwriting tachyons */
+.f2 {
+  font-size: 2rem;
+}

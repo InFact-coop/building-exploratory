@@ -1,5 +1,12 @@
 import React from 'react';
-import GridIcon from './svg/GridIcon'
+import GridIcon from './svg/GridIcon';
+import Education from './svg/Education';
+import Home from './svg/Home';
+import Industrial from './svg/Industrial';
+import Other from './svg/Other';
+import Public from './svg/Public';
+import Shop from './svg/Shop';
+import Worship from './svg/Worship';
 
 const BuildingDetails = ({ building, handleClosingBuildingDetails }) => {
   const {
@@ -35,56 +42,73 @@ const BuildingDetails = ({ building, handleClosingBuildingDetails }) => {
           </div>
           <div>
 
-            <h2 className="primary f3 mb1 ttl ttc">{
-              // TODO
-              // if buildingname then show that else show stree name and things
-                street_number } { street_name }
-            </h2>
-            <h4 className="mt0 mb4 tt4 fw5 f5"> <span> </span> {postcode} </h4>
+            <div className="flex items-end mb4">
+              {
+                <div>
+                  <Home />
+                  <Education />
+                  <Industrial />
+                  <Other />
+                  <Public />
+                  <Shop />
+                  <Worship />
+                </div>
+              }
+              <div className="pl3">
+                <h2 className="ma0 f3 ttc">{
+                  // TODO
+                  // if buildingname then show that else show stree name and things
+                    street_number } { street_name }
+                </h2>
+                <h4 className="ma0 tt4 fw5 f5"> <span> </span> {postcode} </h4>
+              </div>
+            </div>
+
+
           </div>
         </div>
       </header>
 
       <section>
         <h4 className="ma0 primary f5 b"> Historic Significance </h4>
-        <p className="primary">{significance}</p>
+        <p>{significance || 'N/A'}</p>
       </section>
       <section className="flex flex-column">
         <div className="flex">
           <div className="w-50"> 
             <p className="b"> Date Built </p>
-            <p> {date_built_actual} </p>  
+            <p> {date_built_actual || 'N/A'} </p>  
           </div>
           <div className="w-50">
             <p className="b"> Building Type </p>
-            <p> {building_type} </p>
+            <p> {building_type || 'N/A'} </p>
           </div>
         </div>
         <div className="flex">
           <div className="w-50">
             <p className="b"> Conservation Area </p>
-            <p> {conservation_area} </p>
+            <p> {conservation_area || 'N/A'} </p>
           </div>
           <div className="w-50">
             <p className="b"> Architectural Style </p>
-            <p> {architectural_style} </p>
+            <p> {architectural_style || 'N/A'} </p>
           </div>
         </div>
         <div className="flex">
           <div className="w-50">
             <p className="b"> Date of Local Listing </p>
-            <p> {date_local_listing} </p>
+            <p> {date_local_listing || 'N/A'} </p>
           </div>
           <div className="w-50"> 
             <p className="b"> Current Use </p>
-            <p> {current_use} </p>  
+            <p> {current_use || 'N/A'} </p>  
           </div>
         </div>
       </section>
 
       <section>
-        <h4 className="ma0 primary f5 b"> Description  </h4>
-        <p className="primary">{description}</p>
+        <h4 className="ma0 f5 b"> Description  </h4>
+        <p>{description}</p>
       </section>
 
       <section>

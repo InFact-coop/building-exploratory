@@ -7,10 +7,10 @@ const Nav = () => {
       <div className="h3 w3 bg-primary">
         Logo
       </div>
-        <h1 className="f2 ma0 pl3 primary fw8"> Islington Local List </h1>
+        <p className="f2 ma0 pl3 primary fw8"> Islington Local List </p>
       </div>
 
-      <h3 className="f4 ma0 pr3 primary"> About </h3>
+      <p className="ma0 pr3 primary"> About </p>
     </nav>
   );
 }
