@@ -4,6 +4,7 @@ import gql from 'graphql-tag';
 import Map from './Map';
 import BuildingDetails from './BuildingDetails';
 import Nav from './Nav';
+import Footer from './Footer';
 import BuildingsList from './BuildingsList';
 
 const mapCenter = [-0.1058, 51.5465];
@@ -74,6 +75,9 @@ class App extends Component {
           <Map
             {...this.state}
             handleBuildingDetails={this.buildingDetails} />
+        </div>
+        <div className="fl w-100">
+          <Footer />
         </div>
       </div>
     );
