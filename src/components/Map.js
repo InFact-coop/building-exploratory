@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 import ReactMapGL, { Marker, NavigationControl, FlyToInterpolator } from 'react-map-gl';
 
-import MarkerFilled from './MarkerFilled';
-import MarkerEmpty from './MarkerEmpty';
+import MarkerFilled from './svg/MarkerFilled';
+import MarkerEmpty from './svg/MarkerEmpty';
 
 
 class Map extends Component {
 
   constructor(props) {
     super(props);
+
+    console.log((window.innerWidth / 2) - 15) 
+    console.log(window.innerHeight)
     this.state = {
       viewport: {
         latitude: this.props.mapCenter[1],
@@ -16,14 +19,29 @@ class Map extends Component {
         zoom: 11.5,
         bearing: 0,
         pitch: 0,
-        width: 500,
-        height: 500,
+        width: ((window.innerWidth / 2)),
+        height: window.innerHeight,
       },
       popupInfo: null,
       hovering: false,
-      id: undefined
+      id: undefined,
+      selectedBuildingId: undefined
     };
   }
+
+  componentDidMount() {
+    window.addEventListener('resize', this._resize);
+    this._resize();
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this._resize);
+  }
+
+  _resize = () => this._onViewportChange({
+    width: this.props.width || ((window.innerWidth / 2)),
+    height: this.props.height || window.innerHeight
+  });
 
   _updateViewport = (viewport) => {
     this.setState({ viewport });
@@ -47,6 +65,10 @@ class Map extends Component {
     this.setState({ hovering: !this.state.hovering, id } )
   }
 
+  selectedBuilding = (id) => {
+    this.setState({ selectedBuildingId: id })
+
+  }
   render() {
 
     const { buildings = [], handleBuildingDetails, mapCenter, mapZoom } = this.props;
@@ -61,23 +83,21 @@ class Map extends Component {
         >
           <div
             onMouseEnter={(obj) => {
-              console.log('entered');
               this._hoveringItem(i);
             }}
             onClick={() => {
-              console.log('hello')
+              this.selectedBuilding(i);
               handleBuildingDetails(buildingObj);
               let longitude = buildingObj.longitude;
               let latitude = buildingObj.latitude;
               this._goToViewport({longitude, latitude});
             }}
             onMouseLeave={(obj) => {
-              console.log('left');
               this._hoveringItem(undefined);
             }}
           >
           {
-              this.state.hovering && this.state.id === i ? <MarkerFilled /> : <MarkerEmpty />
+              (this.state.hovering && this.state.id === i) || this.state.selectedBuildingId === i ? <MarkerFilled /> : <MarkerEmpty />
           }
           </div>
         </ Marker>

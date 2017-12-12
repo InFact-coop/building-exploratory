@@ -49,25 +49,31 @@ class App extends Component {
       })
     }
 
+  closingBuildingDetails = () => {
+    this.setState({
+      building: {}
+    })
+  }
+
   render() {
     return (
       <div>
         <Nav />
         <div
-          className="fl w-50"
-          style={{ height: "calc(100vh - 4rem)"}}>
-          <Map
-            {...this.state}
-            handleBuildingDetails={this.buildingDetails} / >
-        </div>
-        <div
           className="fl w-50 overflow-scroll"
           style={{ height: "calc(100vh - 4rem)" }}>
             {/* logic here to display either list view or detailed view*/}
             { !this.state.building.significance ?
-              <BuildingsList buildings={this.state.buildings} /> :
-              <BuildingDetails building={this.state.building} />
+            <BuildingsList {...this.state} handleBuildingDetails={this.buildingDetails} /> :
+            <BuildingDetails {...this.state} handleClosingBuildingDetails={this.closingBuildingDetails} />
             }
+        </div>
+        <div
+          className="fl w-50 bl bw1 b--primary"
+          style={{ height: "calc(100vh - 4rem)" }}>
+          <Map
+            {...this.state}
+            handleBuildingDetails={this.buildingDetails} />
         </div>
       </div>
     );
