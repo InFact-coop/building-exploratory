@@ -5,6 +5,7 @@ import Map from './Map';
 import BuildingDetails from './BuildingDetails';
 import Nav from './Nav';
 import BuildingsList from './BuildingsList';
+import About from './About';
 
 const mapCenter = [-0.1058, 51.5465];
 const mapZoom = [12];
@@ -19,7 +20,8 @@ class App extends Component {
       loading: props.data.loading,
       mapCenter: mapCenter,
       mapZoom: mapZoom,
-      buildingHover: {}
+      buildingHover: {},
+      isAbout: false
     }
   }
 
@@ -35,9 +37,6 @@ class App extends Component {
       })
     }
   }
-
-
-
 
    buildingDetails = (building) => {
      // user clicked a point
@@ -55,26 +54,45 @@ class App extends Component {
     })
   }
 
+  isAboutPage = () => {
+    console.log('callled isAboutPahge listener');
+    this.setState({
+      isAbout: !this.state.isAbout
+    })
+
+
+  }
+
   render() {
+
+    console.log(this.state.isAbout, 'changed state for isAbout')
     return (
       <div>
-        <Nav />
-        <div
-          className="fl w-50 overflow-scroll"
-          style={{ height: "calc(100vh - 4rem)" }}>
-            {/* logic here to display either list view or detailed view*/}
-            { !this.state.building.significance ?
-            <BuildingsList {...this.state} handleBuildingDetails={this.buildingDetails} /> :
-            <BuildingDetails {...this.state} handleClosingBuildingDetails={this.closingBuildingDetails} />
-            }
-        </div>
-        <div
-          className="fl w-50 bl bw1 b--primary"
-          style={{ height: "calc(100vh - 4rem)" }}>
-          <Map
-            {...this.state}
-            handleBuildingDetails={this.buildingDetails} />
-        </div>
+        <Nav handleIsAboutPage={this.isAboutPage} />
+        {/* logic here to display either home page or about page  */}
+        { !this.state.isAbout ?
+
+          <section>
+            <div
+              className="fl w-50 overflow-scroll"
+              style={{ height: "calc(100vh - 4rem)" }}>
+                {/* logic here to display either list view or detailed view*/}
+                { !this.state.building.significance ?
+                <BuildingsList {...this.state} handleBuildingDetails={this.buildingDetails} /> :
+                <BuildingDetails {...this.state} handleClosingBuildingDetails={this.closingBuildingDetails} />
+                }
+            </div>
+            <div
+              className="fl w-50 bl bw1 b--primary"
+              style={{ height: "calc(100vh - 4rem)" }}>
+              <Map
+                {...this.state}
+                handleBuildingDetails={this.buildingDetails} />
+            </div>
+          </section>
+        :
+        <About />
+        }
       </div>
     );
   }
