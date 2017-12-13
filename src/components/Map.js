@@ -9,12 +9,12 @@ class Map extends Component {
 
   constructor(props) {
     super(props);
-    
+
     this.state = {
       viewport: {
         latitude: this.props.mapCenter[1],
         longitude: this.props.mapCenter[0],
-        zoom: 11.5,
+        zoom: this.props.mapZoom,
         bearing: 0,
         pitch: 0,
         width: ((window.innerWidth / 2)),

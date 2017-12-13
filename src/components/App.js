@@ -7,7 +7,7 @@ import Nav from './Nav';
 import BuildingsList from './BuildingsList';
 
 const mapCenter = [-0.1058, 51.5465];
-const mapZoom = [12];
+const mapZoom = 11.5;
 
 class App extends Component {
   constructor(props) {
