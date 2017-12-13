@@ -45,6 +45,9 @@ class App extends Component {
   buildingDetails = (building, selectedBuildingRef) => {
      // user clicked a point
      // update state for a single building     
+     console.log(building.id)
+     console.log(building.longitude)
+     console.log(building.latitude)
       this.setState({
         building: building,
         mapCenter: [building.longitude, building.latitude],
@@ -74,10 +77,8 @@ class App extends Component {
               {...this.state} 
               handleBuildingDetails={this.buildingDetails} 
               inputRef={el => { 
-                console.log(this.testElem); 
                 this.testElem = el; 
                 if (el && el.id == this.state.selectedBuildingRef) { 
-                  console.log('you in here inputref if statement', el.id);
                   this.testElem.scrollIntoView();
                   window.scrollBy(0, -65);
                 } 

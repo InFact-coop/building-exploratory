@@ -36,6 +36,26 @@ class Map extends Component {
     window.removeEventListener('resize', this._resize);
   }
 
+  shouldComponentUpdate(nextProps, prevState) {
+
+
+    if (nextProps.building.significance && !prevState.selectedBuildingId) {
+      console.log(nextProps.building.id, 'building id nextprop')
+      console.log(nextProps.building.longitude, 'building longitude nextprop')
+      console.log(nextProps.building.latitude, 'building latitude nextprop')
+      this.selectedBuilding(nextProps.building.id);
+      let longitude = nextProps.building.longitude;
+      let latitude = nextProps.building.latitude;
+      this._goToViewport({ longitude, latitude });
+    } else if (!nextProps.building.significance && prevState.selectedBuildingId) {
+      this.setState({
+        selectedBuildingId: undefined
+      })
+    }
+    return true;
+
+  }
+
   _resize = () => this._onViewportChange({
     width: this.props.width || ((window.innerWidth / 2)),
     height: this.props.height || (window.innerHeight - 64)
@@ -65,26 +85,27 @@ class Map extends Component {
 
   selectedBuilding = (id) => {
     this.setState({ selectedBuildingId: id })
-
   }
+
   render() {
 
     const { buildings = [], handleBuildingDetails, mapCenter, mapZoom } = this.props;
     const { viewport } = this.state;
 
     const allMarkers = buildings.length > 0 && buildings.map((buildingObj, i) => {
+      let ii = ++i;
       return (
         <Marker
-          key={i}
+          key={ii}
           longitude={buildingObj.longitude}
           latitude={buildingObj.latitude}
         >
           <div
             onMouseEnter={(obj) => {
-              this._hoveringItem(i);
+              this._hoveringItem(ii);
             }}
             onClick={() => {
-              this.selectedBuilding(i);
+              this.selectedBuilding(ii);
               handleBuildingDetails(buildingObj);
               let longitude = buildingObj.longitude;
               let latitude = buildingObj.latitude;
@@ -95,7 +116,7 @@ class Map extends Component {
             }}
           >
           {
-              (this.state.hovering && this.state.id === i) || this.state.selectedBuildingId === i ? <MarkerFilled /> : <MarkerEmpty />
+              (this.state.hovering && this.state.id === ii) || this.state.selectedBuildingId === ii ? <MarkerFilled /> : <MarkerEmpty />
           }
           </div>
         </ Marker>
