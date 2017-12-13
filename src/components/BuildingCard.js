@@ -13,18 +13,7 @@ class BuildingCard extends Component {
     }
   }
 
-  componentDidMount() {
-    console.log(this, 'buildings card')
-
-    // let elem = this.refs;
-    // console.log(elem[10], 'elem')
-    // this.props.building && elem.scrollIntoView({ block: 'end', behavior: 'smooth' });
-    // window.scrollBy(0, -65);
-  }
-
-
   hoveringCard = () => {
-    console.log('you in here????')
     this.setState({
       hovering: !this.state.hovering
     });
@@ -53,19 +42,7 @@ class BuildingCard extends Component {
         className={`${this.state.hovering ? 'b--primary-50' : 'b--primary'} ba bw1 w-100 w-40-ns flex-grow-1 mb4 mr4`}
         onMouseEnter={() => { this.hoveringCard(); }}
         onMouseLeave={() => { this.hoveringCard(); }}
-        onClick={() => {
-          const selectedBuildingRef = this.refs[building.id];
-          // const position = ReactDOM
-          //   .findDOMNode(this.refs['card'])
-          //   .getBoundingClientRect();
-          // ReactDOM.findDOMNode(building.id).scrollIntoView()
-          // window.scrollBy(0, -65);
-          this.hoveringCard(); handleBuildingDetails(building, selectedBuildingRef); 
-          // console.log(ReactDOM
-          //   .findDOMNode(this.refs['card'])
-          //   .getBoundingClientRect() ); 
-
-          }}>
+        onClick={() => { this.hoveringCard(); handleBuildingDetails(building, building.id); }}>
         <div className={`${this.state.hovering ? 'b--primary-50' : 'b--primary'} bb bw1 pa3`}>
           <p className="ma0 tc primary b f5 ttc">{building.street_number} {building.street_name}</p>
         </div>

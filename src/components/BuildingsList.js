@@ -9,15 +9,6 @@ class BuildingsList extends Component {
     super(props)
   }
 
-  componentDidMount() {
-    console.log(this.refs, 'buildings list')
-    // ReactDOM.findDOMNode(this).scrollIntoView()
-    // ReactDOM.findDOMNode(this).scrollTop = 0
-      //  console.log(this.state.selectedBuildingRef, 'SELECTED REFFF in buildingslist');
-      // this.props.selectedBuildingRef && this.props.selectedBuildingRef.scrollIntoView({ block: 'end', behavior: 'smooth' });
-      // window.scrollBy(0, -65);
-  }
-
   render() {
     const { buildings = [], handleBuildingDetails } = this.props;
     const buildingCards = buildings.map((building, i) => {

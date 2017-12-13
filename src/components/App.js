@@ -57,36 +57,13 @@ class App extends Component {
 
     this.setState({
       building: {}
-    }, () => {
-    // console.log(this.state.selectedBuildingRef, 'SELECTED REFFF');
-
-      // this.state.selectedBuildingRef.scrollIntoView({ block: 'end', behavior: 'smooth' });
-      // window.scrollBy(0, -65);
     })
   }
 
-
-  componentDidMount() {
-
-
-    setTimeout(() => {
-      
-      // console.log(ReactDOM.findDOMNode(this.refs[10]))
-      // console.log(this.refs, 'this.refs'); // being called before the child component has been called? 
-    }, 5000)
-    // console.log(this.refs[10], 'this.refs'); // being called before the child component has been called? 
-    // this.state.selectedBuildingRef.scrollIntoView({ block: 'end', behavior: 'smooth' });
-    // window.scrollBy(0, -65);
-  }
   render() {
     
     return (
       <div>
-      <p onClick={() => {
-        console.log(this.refs)
-        // this.refs[10].scrollIntoView({ block: 'end', behavior: 'smooth' });
-        // window.scrollBy(0, -65);
-      }}>testing</p>
         <Nav />
         <div
           className="fl w-50 overflow-scroll"
@@ -96,7 +73,15 @@ class App extends Component {
             <BuildingsList 
               {...this.state} 
               handleBuildingDetails={this.buildingDetails} 
-              inputRef={el => { /* console.log(this.inputRef, 'inpuatref in APP'); */ this.inputRef = el; }} /> :
+              inputRef={el => { 
+                console.log(this.testElem); 
+                this.testElem = el; 
+                if (el && el.id == this.state.selectedBuildingRef) { 
+                  console.log('you in here inputref if statement', el.id);
+                  this.testElem.scrollIntoView();
+                  window.scrollBy(0, -65);
+                } 
+              }} /> :
             <BuildingDetails {...this.state} handleClosingBuildingDetails={this.closingBuildingDetails} />
             }
         </div>
