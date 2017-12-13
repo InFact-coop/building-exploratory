@@ -8,6 +8,7 @@ import Public from './svg/Public';
 import Shop from './svg/Shop';
 import Worship from './svg/Worship';
 import BuildingFact from './BuildingFact.js';
+import BuildingImage from './BuildingImage';
 
 const BuildingDetails = ({ building, handleClosingBuildingDetails }) => {
   const {
@@ -96,24 +97,11 @@ const BuildingDetails = ({ building, handleClosingBuildingDetails }) => {
       </section>
 
       <section>
-
-        <img className="ba b--primary bw1" alt="" src={ featured_image } />
-        {
-          second_image &&
-          <img className="ba b--primary bw1" alt="" src={second_image} />
-        }
-        {
-          third_image &&
-          <img className="ba b--primary bw1" alt="" src={third_image} />
-        }
-        {
-          fourth_image &&
-          <img className="ba b--primary bw1" alt="" src={fourth_image} />
-        }
-        {
-          fifth_image &&
-          <img className="ba b--primary bw1" alt="" src={fifth_image} />
-        }
+        <BuildingImage image={ featured_image } />
+        { second_image && <BuildingImage image={ second_image } /> }
+        { third_image && <BuildingImage image={ third_image } /> }
+        { fourth_image && <BuildingImage image={ fourth_image } /> }
+        { fifth_image && <BuildingImage image={ fifth_image } /> }
       </section>
     </main>
   );
