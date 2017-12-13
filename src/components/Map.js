@@ -91,7 +91,7 @@ class Map extends Component {
               this._goToViewport({longitude, latitude});
             }}
             onMouseLeave={(obj) => {
-              this._hoveringItem(undefined);
+              this._hoveringItem(null);
             }}
           >
           {
@@ -104,13 +104,12 @@ class Map extends Component {
 
     return (
       <ReactMapGL
-          { ...viewport }
-          mapboxApiAccessToken={'pk.eyJ1Ijoic29oaWxwYW5keWEiLCJhIjoiY2phODdiMnM1MDQybjMycGZ3ZTE0d3RsOCJ9.4WBBpoMgECNDbRL4BahGhQ'}
-          mapStyle='mapbox://styles/sohilpandya/cja87dmin0ct62sl4jxyo4tzp'
-        onViewportChange={this._updateViewport}
-        >
-        { buildings.length > 0 && allMarkers }
-        </ReactMapGL>
+        { ...viewport }
+        mapboxApiAccessToken={'pk.eyJ1Ijoic29oaWxwYW5keWEiLCJhIjoiY2phODdiMnM1MDQybjMycGZ3ZTE0d3RsOCJ9.4WBBpoMgECNDbRL4BahGhQ'}
+        mapStyle='mapbox://styles/sohilpandya/cja87dmin0ct62sl4jxyo4tzp'
+        onViewportChange={this._updateViewport}>
+          { buildings.length > 0 && allMarkers }
+      </ReactMapGL>
     )
   }
 }
