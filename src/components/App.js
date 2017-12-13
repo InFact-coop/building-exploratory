@@ -21,7 +21,7 @@ class App extends Component {
       mapCenter: mapCenter,
       mapZoom: mapZoom,
       buildingHover: {},
-      isAbout: false
+      isAbout: true
     }
   }
 
