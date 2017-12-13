@@ -16,6 +16,7 @@ const islingtonSchema = new Schema({
   id: Number,
   street_number: String,
   street_name: String,
+  building_name: String,
   postcode: String,
   ward: String,
   conservation_area: String,

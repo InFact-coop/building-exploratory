@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 import Map from './Map';
@@ -20,7 +21,8 @@ class App extends Component {
       loading: props.data.loading,
       mapCenter: mapCenter,
       mapZoom: mapZoom,
-      buildingHover: {}
+      buildingHover: {},
+      selectedBuildingRef: undefined
     }
   }
 
@@ -40,32 +42,61 @@ class App extends Component {
 
 
 
-   buildingDetails = (building) => {
+  buildingDetails = (building, selectedBuildingRef) => {
      // user clicked a point
-     // update state for a single building
+     // update state for a single building     
       this.setState({
         building: building,
         mapCenter: [building.longitude, building.latitude],
-        mapZoom: [15.5]
+        mapZoom: [15.5], 
+        selectedBuildingRef: selectedBuildingRef
       })
     }
 
   closingBuildingDetails = () => {
+
     this.setState({
       building: {}
+    }, () => {
+    // console.log(this.state.selectedBuildingRef, 'SELECTED REFFF');
+
+      // this.state.selectedBuildingRef.scrollIntoView({ block: 'end', behavior: 'smooth' });
+      // window.scrollBy(0, -65);
     })
   }
 
+
+  componentDidMount() {
+
+
+    setTimeout(() => {
+      
+      // console.log(ReactDOM.findDOMNode(this.refs[10]))
+      // console.log(this.refs, 'this.refs'); // being called before the child component has been called? 
+    }, 5000)
+    // console.log(this.refs[10], 'this.refs'); // being called before the child component has been called? 
+    // this.state.selectedBuildingRef.scrollIntoView({ block: 'end', behavior: 'smooth' });
+    // window.scrollBy(0, -65);
+  }
   render() {
+    
     return (
       <div>
+      <p onClick={() => {
+        console.log(this.refs)
+        // this.refs[10].scrollIntoView({ block: 'end', behavior: 'smooth' });
+        // window.scrollBy(0, -65);
+      }}>testing</p>
         <Nav />
         <div
           className="fl w-50 overflow-scroll"
           style={{ height: "calc(100vh - 4rem)" }}>
             {/* logic here to display either list view or detailed view*/}
             { !this.state.building.significance ?
-            <BuildingsList {...this.state} handleBuildingDetails={this.buildingDetails} /> :
+            <BuildingsList 
+              {...this.state} 
+              handleBuildingDetails={this.buildingDetails} 
+              inputRef={el => { /* console.log(this.inputRef, 'inpuatref in APP'); */ this.inputRef = el; }} /> :
             <BuildingDetails {...this.state} handleClosingBuildingDetails={this.closingBuildingDetails} />
             }
         </div>
