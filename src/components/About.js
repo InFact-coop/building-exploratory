@@ -13,13 +13,13 @@ const About = () => {
         style={{ height: "calc(100vh - 4rem)" }}>
 
       <header>
-        <img alt="The Building Exploratory" src={logo} />
-        <p className="f2 b mb0 ">Islington Local List</p>
+        <img alt="The Building Exploratory" src={logo} className="measure-narrow" />
+        <p className="f2 b mt2 mb0">Islington Local List</p>
       </header>
 
       <div>
-        <section className="pt4">
-          <h2 className="f4">About Islington Local List</h2>
+        <section className="pt4 lh-copy">
+          <h2 className="mt0 f4">About Islington Local List</h2>
 
           <p>At the beginning of the project, Islington’s Local List contained 1,200
           entries, a figure considerably higher than that of neighbouring boroughs Camden
@@ -49,8 +49,8 @@ const About = () => {
           planning committee.</p>
         </section>
 
-        <section className="pt4">
-          <h2 className="f4">Our Eyes on Islington</h2>
+        <section className="pt4 lh-copy">
+          <h2 className="mt0 f4">Our Eyes on Islington</h2>
           <p>Islington Local List website, which was created as part of the Our Eyes
           on Islington project. Delivered across 2016 and 2017, the project has
           reviewed Islington’s schedule of locally listed buildings, buildings
@@ -71,8 +71,8 @@ const About = () => {
           the content for this website.</p>
         </section>
 
-        <section className="pt4 pb4">
-          <h2 className="f4">Project Aims and Outcomes</h2>
+        <section className="mt0 pt4 pb4 lh-copy">
+          <h2 className="mt0 f4">Project Aims and Outcomes</h2>
           <p>The Our Eyes on Islington review ensures that the local heritage
           list is up-to-date in order to provide a concise and comprehensive
           document that can benefit planning processes and decision-making; to
@@ -83,8 +83,8 @@ const About = () => {
       </div>
 
       <div>
-        <section className="pt4 pb4 bt b--primary bw1">
-          <h2 className="f4">Project Partners</h2>
+        <section className="mt0 pt4 pb4 bt b--primary bw1 lh-copy">
+          <h2 className="mt0 f4">Project Partners</h2>
           <p>Our Eyes on Islington is a project in partnership with the
           <a>London Borough of Islington</a> and Historic England.</p>
 
@@ -96,13 +96,24 @@ const About = () => {
           historic environment. It champions and protects historic places by
           helping people understand, value and care for them.</p>
 
-          <div>logo logo</div>
+
+          <section className="w-100 pv2">
+            <div className="flex align-center justify-start">
+              <div>
+              <img className="w5" alt="Partner: Historic England" src={historicEngland} />
+              </div>
+              <div>
+              <img className="w5 pt1 pt2-ns" alt="Partner: London Borough of Islington" src={islington} />
+              </div>
+            </div>
+          </section>
+
         </section>
       </div>
 
       <div>
-        <section className="pt4 bt b--primary bw1">
-          <h2 className="f4">The Building Exploratory</h2>
+        <section className="mt0 pt4 bt b--primary bw1 lh-copy">
+          <h2 className="mt0 f4">The Building Exploratory</h2>
           <p>Launched in 1998, the Building Exploratory is a learning and
           engagement organisation that helps communities to discover the
           secrets of their local area. It works across London with schools,
@@ -129,8 +140,8 @@ const About = () => {
         style={{ height: "calc(100vh - 4rem)" }}>
 
         <div>
-          <section>
-            <h2 className="f4 ma0">Thank You to All Our Volunteers!</h2>
+          <section className="lh-copy">
+            <h2 className="f4">Thank You to All Our Volunteers!</h2>
             <p>While the main aim of the project was to update the Local List
             and create a comprehensive document to provide greater clarity for
             planning processes, it also aimed to showcase and promote
@@ -160,14 +171,22 @@ const About = () => {
           <section>
             <h2 className="f4">Our Eyes on Islington Volunteers:</h2>
             <div className="flex flex-wrap justify-between">
-              <p className="ph1">Jeremy Woods</p>
-              <p className="ph1">Jeremy Woods</p>
-              <p className="ph1">Jeremy Woods</p>
-              <p className="ph1">Jeremy Woods</p>
-              <p className="ph1">Jeremy Woods</p>
-              <p className="ph1">Jeremy Woods</p>
-              <p className="ph1">Jeremy Woods</p>
-              <p className="ph1">Jeremy Woods</p>
+              <p className="mv1 ph1 w-25-l">Jeremy Woods</p>
+              <p className="mv1 ph1 w-25-l">Jeremy Woods</p>
+              <p className="mv1 ph1 w-25-l">Jeremy Woods</p>
+              <p className="mv1 ph1 w-25-l">Jeremy Woods</p>
+              <p className="mv1 ph1 w-25-l">Jeremy Woods</p>
+              <p className="mv1 ph1 w-25-l">Jeremy Woods</p>
+              <p className="mv1 ph1 w-25-l">Jeremy Woods</p>
+              <p className="mv1 ph1 w-25-l">Jeremy Woods</p>
+              <p className="mv1 ph1 w-25-l">Jeremy Woods</p>
+              <p className="mv1 ph1 w-25-l">Jeremy Woods</p>
+              <p className="mv1 ph1 w-25-l">Jeremy Woods</p>
+              <p className="mv1 ph1 w-25-l">Jeremy Woods</p>
+              <p className="mv1 ph1 w-25-l">Jeremy Woods</p>
+              <p className="mv1 ph1 w-25-l">Jeremy Woods</p>
+              <p className="mv1 ph1 w-25-l">Jeremy Woods</p>
+              <p className="mv1 ph1 w-25-l">Jeremy Woods</p>
             </div>
           </section>
 

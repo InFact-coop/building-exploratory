@@ -5,7 +5,7 @@
   src: url("./assets/fonts/CooperHewitt-Medium.woff") format("font-woff"),
   url("./assets/fonts/CooperHewitt-Medium.ttf") format("truetype");
 }
- 
+
 @font-face {
   font-family: CooperHewitt;
   src: url("./assets/fonts/CooperHewitt-Bold.woff") format("font-woff"),
