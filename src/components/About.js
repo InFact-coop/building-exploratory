@@ -6,11 +6,10 @@ import islington from '../assets/img/islington.jpg';
 
 const About = () => {
   return(
-    <main className="flex-l primary">
+    <main className="mv5 mv0-l flex-l primary">
 
       <div
-        className="w-50-l ph4 pv5-l overflow-scroll"
-        style={{ height: "calc(100vh - 4rem)" }}>
+        className="w-50-l ph4 pv5-l height-scroll-l overflow-scroll-l">
 
       <header>
         <img alt="The Building Exploratory" src={logo} className="measure-narrow" />
@@ -112,7 +111,7 @@ const About = () => {
       </div>
 
       <div>
-        <section className="mt0 pt4 bt b--primary bw1 lh-copy">
+        <section className="mt0 pt4 pb4 bt b--primary bw1 lh-copy">
           <h2 className="mt0 f4">The Building Exploratory</h2>
           <p>Launched in 1998, the Building Exploratory is a learning and
           engagement organisation that helps communities to discover the
@@ -128,19 +127,23 @@ const About = () => {
 
           <p>For further information about our work and the Our Eyes on
           Islington project, please visit our website:
-          <a>www.buildingexploratory.org.uk</a>
-          or email: mail@buildingexploratory.org.uk</p>
+          <a className="red link">www.buildingexploratory.org.uk</a>
+           or email: <span className="red">mail@buildingexploratory.org.uk</span></p>
         </section>
       </div>
 
       </div>
 
+
+
+
+
+
       <div
-        className="w-50-l ph4 pv5-l overflow-scroll bl b--primary bw1"
-        style={{ height: "calc(100vh - 4rem)" }}>
+        className="w-50-l ph4 pv5-l bl-l b--primary bw1 height-scroll-l overflow-scroll-l">
 
         <div>
-          <section className="lh-copy">
+          <section className="pt4 pt0-l bt bn-l b--primary bw1 lh-copy">
             <h2 className="f4">Thank You to All Our Volunteers!</h2>
             <p>While the main aim of the project was to update the Local List
             and create a comprehensive document to provide greater clarity for
@@ -163,7 +166,7 @@ const About = () => {
             as an organisation.</p>
 
             <p>Generous support for the project has also been provided by
-            <a>The Islington Society</a>, and its collaborations on events and
+            <a className="red link">The Islington Society</a>, and its collaborations on events and
             publications have played an important role in raising awareness of
             the project - Thank you!</p>
           </section>
@@ -171,27 +174,28 @@ const About = () => {
           <section>
             <h2 className="f4">Our Eyes on Islington Volunteers:</h2>
             <div className="flex flex-wrap justify-between">
-              <p className="mv1 ph1 w-25-l">Jeremy Woods</p>
-              <p className="mv1 ph1 w-25-l">Jeremy Woods</p>
-              <p className="mv1 ph1 w-25-l">Jeremy Woods</p>
-              <p className="mv1 ph1 w-25-l">Jeremy Woods</p>
-              <p className="mv1 ph1 w-25-l">Jeremy Woods</p>
-              <p className="mv1 ph1 w-25-l">Jeremy Woods</p>
-              <p className="mv1 ph1 w-25-l">Jeremy Woods</p>
-              <p className="mv1 ph1 w-25-l">Jeremy Woods</p>
-              <p className="mv1 ph1 w-25-l">Jeremy Woods</p>
-              <p className="mv1 ph1 w-25-l">Jeremy Woods</p>
-              <p className="mv1 ph1 w-25-l">Jeremy Woods</p>
-              <p className="mv1 ph1 w-25-l">Jeremy Woods</p>
-              <p className="mv1 ph1 w-25-l">Jeremy Woods</p>
-              <p className="mv1 ph1 w-25-l">Jeremy Woods</p>
-              <p className="mv1 ph1 w-25-l">Jeremy Woods</p>
-              <p className="mv1 ph1 w-25-l">Jeremy Woods</p>
+              <p className="mv1 ph1 w-20-ns w-25-l">Jeremy Woods</p>
+              <p className="mv1 ph1 w-20-ns w-25-l">Jeremy Woods</p>
+              <p className="mv1 ph1 w-20-ns w-25-l">Jeremy Woods</p>
+              <p className="mv1 ph1 w-20-ns w-25-l">Jeremy Woods</p>
+              <p className="mv1 ph1 w-20-ns w-25-l">Jeremy Woods</p>
+              <p className="mv1 ph1 w-20-ns w-25-l">Jeremy Woods</p>
+              <p className="mv1 ph1 w-20-ns w-25-l">Jeremy Woods</p>
+              <p className="mv1 ph1 w-20-ns w-25-l">Jeremy Woods</p>
+              <p className="mv1 ph1 w-20-ns w-25-l">Jeremy Woods</p>
+              <p className="mv1 ph1 w-20-ns w-25-l">Jeremy Woods</p>
+              <p className="mv1 ph1 w-20-ns w-25-l">Jeremy Woods</p>
+              <p className="mv1 ph1 w-20-ns w-25-l">Jeremy Woods</p>
+              <p className="mv1 ph1 w-20-ns w-25-l">Jeremy Woods</p>
+              <p className="mv1 ph1 w-20-ns w-25-l">Jeremy Woods</p>
+              <p className="mv1 ph1 w-20-ns w-25-l">Jeremy Woods</p>
+              <p className="mv1 ph1 w-20-ns w-25-l">Jeremy Woods</p>
             </div>
           </section>
 
         </div>
       </div>
+
 
     </main>
   )
