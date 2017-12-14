@@ -85,11 +85,11 @@ const About = () => {
         <section className="mt0 pt4 pb4 bt b--primary bw1 lh-copy">
           <h2 className="mt0 f4">Project Partners</h2>
           <p>Our Eyes on Islington is a project in partnership with the
-          <a>London Borough of Islington</a> and Historic England.</p>
+          &nbsp;<a href="" className="red link">London Borough of Islington</a> and Historic England.</p>
 
           <p>In reviewing the Local List, project volunteers applied LB of
           Islington’s set of heritage criteria. The full list of criteria can
-          be found <a>here</a>.</p>
+          be found <a href="" className="red link">here</a>.</p>
 
           <p>Historic England is the public body that looks after Englands
           historic environment. It champions and protects historic places by
@@ -126,9 +126,9 @@ const About = () => {
           engaging more than 50 communities.</p>
 
           <p>For further information about our work and the Our Eyes on
-          Islington project, please visit our website:
-          <a className="red link">www.buildingexploratory.org.uk</a>
-           or email: <span className="red">mail@buildingexploratory.org.uk</span></p>
+          Islington project, please visit our website: &nbsp;
+          <a href="" className="red link">www.buildingexploratory.org.uk</a>
+           &nbsp; or email: <span className="red">mail@buildingexploratory.org.uk</span></p>
         </section>
       </div>
 
@@ -166,7 +166,7 @@ const About = () => {
             as an organisation.</p>
 
             <p>Generous support for the project has also been provided by
-            <a className="red link">The Islington Society</a>, and its collaborations on events and
+            &nbsp;<a href="" className="red link">The Islington Society</a>, and its collaborations on events and
             publications have played an important role in raising awareness of
             the project - Thank you!</p>
           </section>
