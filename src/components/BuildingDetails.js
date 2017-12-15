@@ -7,6 +7,8 @@ import Other from './svg/Other';
 import Public from './svg/Public';
 import Shop from './svg/Shop';
 import Worship from './svg/Worship';
+import BuildingFact from './BuildingFact.js';
+import BuildingImage from './BuildingImage';
 
 const BuildingDetails = ({ building, handleClosingBuildingDetails }) => {
   const {
@@ -73,36 +75,19 @@ const BuildingDetails = ({ building, handleClosingBuildingDetails }) => {
         <h4 className="ma0 primary f5 b"> Historic Significance </h4>
         <p>{significance || 'N/A'}</p>
       </section>
+
       <section className="flex flex-column">
         <div className="flex">
-          <div className="w-50"> 
-            <p className="b"> Date Built </p>
-            <p> {date_built_actual || 'N/A'} </p>  
-          </div>
-          <div className="w-50">
-            <p className="b"> Building Type </p>
-            <p> {building_type || 'N/A'} </p>
-          </div>
+          <BuildingFact factName='Date Built' fact={date_built_actual} />
+          <BuildingFact factName='Building Type' fact={building_type} />
         </div>
         <div className="flex">
-          <div className="w-50">
-            <p className="b"> Conservation Area </p>
-            <p> {conservation_area || 'N/A'} </p>
-          </div>
-          <div className="w-50">
-            <p className="b"> Architectural Style </p>
-            <p> {architectural_style || 'N/A'} </p>
-          </div>
+          <BuildingFact factName='Conservation Area' fact={conservation_area} />
+          <BuildingFact factName='Architectural Style' fact={architectural_style} />
         </div>
         <div className="flex">
-          <div className="w-50">
-            <p className="b"> Date of Local Listing </p>
-            <p> {date_local_listing || 'N/A'} </p>
-          </div>
-          <div className="w-50"> 
-            <p className="b"> Current Use </p>
-            <p> {current_use || 'N/A'} </p>  
-          </div>
+          <BuildingFact factName='Date of Local Listing' fact={date_local_listing} />
+          <BuildingFact factName='Current Use' fact={current_use} />
         </div>
       </section>
 
@@ -112,24 +97,11 @@ const BuildingDetails = ({ building, handleClosingBuildingDetails }) => {
       </section>
 
       <section>
-
-        <img className="ba b--primary bw1" alt="" src={ featured_image } />
-        {
-          second_image && 
-          <img className="ba b--primary bw1" alt="" src={second_image} />
-        }
-        {
-          third_image && 
-          <img className="ba b--primary bw1" alt="" src={third_image} />
-        }
-        {
-          fourth_image && 
-          <img className="ba b--primary bw1" alt="" src={fourth_image} />
-        }
-        {
-          fifth_image && 
-          <img className="ba b--primary bw1" alt="" src={fifth_image} />
-        }
+        <BuildingImage image={ featured_image } />
+        { second_image && <BuildingImage image={ second_image } /> }
+        { third_image && <BuildingImage image={ third_image } /> }
+        { fourth_image && <BuildingImage image={ fourth_image } /> }
+        { fifth_image && <BuildingImage image={ fifth_image } /> }
       </section>
     </main>
   );
