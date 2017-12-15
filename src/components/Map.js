@@ -1,26 +1,23 @@
 import React, { Component } from 'react';
-import ReactMapGL, { Marker, NavigationControl, FlyToInterpolator } from 'react-map-gl';
+import ReactMapGL, { FlyToInterpolator } from 'react-map-gl';
 
-import MarkerFilled from './svg/MarkerFilled';
-import MarkerEmpty from './svg/MarkerEmpty';
-
+import Markers from './Markers.js';
 
 class Map extends Component {
 
   constructor(props) {
     super(props);
-    
+
     this.state = {
       viewport: {
         latitude: this.props.mapCenter[1],
         longitude: this.props.mapCenter[0],
-        zoom: 11.5,
+        zoom: this.props.mapZoom,
         bearing: 0,
         pitch: 0,
         width: ((window.innerWidth / 2)),
         height: (window.innerHeight - 64),
       },
-      popupInfo: null,
       hovering: false,
       id: undefined,
       selectedBuildingId: undefined
@@ -28,17 +25,15 @@ class Map extends Component {
   }
 
   componentDidMount() {
-    window.addEventListener('resize', this._resize);
-    this._resize();
+    window.addEventListener('resize', this.resize);
+    this.resize();
   }
 
   componentWillUnmount() {
-    window.removeEventListener('resize', this._resize);
+    window.removeEventListener('resize', this.resize);
   }
 
   shouldComponentUpdate(nextProps, prevState) {
-
-
     if (nextProps.building.significance && !prevState.selectedBuildingId) {
       console.log(nextProps.building.id, 'building id nextprop')
       console.log(nextProps.building.longitude, 'building longitude nextprop')
@@ -46,7 +41,7 @@ class Map extends Component {
       this.selectedBuilding(nextProps.building.id);
       let longitude = nextProps.building.longitude;
       let latitude = nextProps.building.latitude;
-      this._goToViewport({ longitude, latitude });
+      this.goToViewport({ longitude, latitude });
     } else if (!nextProps.building.significance && prevState.selectedBuildingId) {
       this.setState({
         selectedBuildingId: undefined
@@ -56,21 +51,21 @@ class Map extends Component {
 
   }
 
-  _resize = () => this._onViewportChange({
+  resize = () => this.onViewportChange({
     width: this.props.width || ((window.innerWidth / 2)),
     height: this.props.height || (window.innerHeight - 64)
   });
 
-  _updateViewport = (viewport) => {
+  updateViewport = (viewport) => {
     this.setState({ viewport });
   }
 
-  _onViewportChange = viewport => this.setState({
+  onViewportChange = viewport => this.setState({
     viewport: { ...this.state.viewport, ...viewport }
   });
 
-  _goToViewport = ({ longitude, latitude }) => {
-    this._onViewportChange({
+  goToViewport = ({ longitude, latitude }) => {
+    this.onViewportChange({
       longitude,
       latitude,
       zoom: 15,
@@ -79,7 +74,8 @@ class Map extends Component {
     });
   }
 
-  _hoveringItem = (id) => {
+  hoveringItem = (id) => {
+    console.log('hovering in hovering item')
     this.setState({ hovering: !this.state.hovering, id } )
   }
 
@@ -89,49 +85,26 @@ class Map extends Component {
 
   render() {
 
-    const { buildings = [], handleBuildingDetails, mapCenter, mapZoom } = this.props;
+    const { buildings = [], handleBuildingDetails } = this.props;
     const { viewport } = this.state;
-
-    const allMarkers = buildings.length > 0 && buildings.map((buildingObj, i) => {
-      let ii = ++i;
-      return (
-        <Marker
-          key={ii}
-          longitude={buildingObj.longitude}
-          latitude={buildingObj.latitude}
-        >
-          <div
-            onMouseEnter={(obj) => {
-              this._hoveringItem(ii);
-            }}
-            onClick={() => {
-              this.selectedBuilding(ii);
-              handleBuildingDetails(buildingObj);
-              let longitude = buildingObj.longitude;
-              let latitude = buildingObj.latitude;
-              this._goToViewport({longitude, latitude});
-            }}
-            onMouseLeave={(obj) => {
-              this._hoveringItem(undefined);
-            }}
-          >
-          {
-              (this.state.hovering && this.state.id === ii) || this.state.selectedBuildingId === ii ? <MarkerFilled /> : <MarkerEmpty />
-          }
-          </div>
-        </ Marker>
-      );
-    });
 
     return (
       <ReactMapGL
-          { ...viewport }
-          mapboxApiAccessToken={'pk.eyJ1Ijoic29oaWxwYW5keWEiLCJhIjoiY2phODdiMnM1MDQybjMycGZ3ZTE0d3RsOCJ9.4WBBpoMgECNDbRL4BahGhQ'}
-          mapStyle='mapbox://styles/sohilpandya/cja87dmin0ct62sl4jxyo4tzp'
-        onViewportChange={this._updateViewport}
-        >
-        { buildings.length > 0 && allMarkers }
-        </ReactMapGL>
+        { ...viewport }
+        mapboxApiAccessToken={'pk.eyJ1Ijoic29oaWxwYW5keWEiLCJhIjoiY2phODdiMnM1MDQybjMycGZ3ZTE0d3RsOCJ9.4WBBpoMgECNDbRL4BahGhQ'}
+        mapStyle='mapbox://styles/sohilpandya/cja87dmin0ct62sl4jxyo4tzp'
+        onViewportChange={this.updateViewport}>
+          { buildings.length > 0 &&
+            <Markers
+              {...this.state}
+              handleBuildingDetails={handleBuildingDetails}
+              buildings={buildings}
+              hoveringItem={this.hoveringItem}
+              selectedBuilding={this.selectedBuilding}
+              goToViewport={this.goToViewport}
+            />
+          }
+      </ReactMapGL>
     )
   }
 }

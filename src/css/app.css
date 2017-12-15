@@ -5,7 +5,7 @@
   src: url("./assets/fonts/CooperHewitt-Medium.woff") format("font-woff"),
   url("./assets/fonts/CooperHewitt-Medium.ttf") format("truetype");
 }
- 
+
 @font-face {
   font-family: CooperHewitt;
   src: url("./assets/fonts/CooperHewitt-Bold.woff") format("font-woff"),
@@ -68,4 +68,10 @@ html {
 /* overwriting tachyons */
 .f2 {
   font-size: 2rem;
+}
+
+@media(min-width: 60em ) {
+  .height-scroll-l {
+    height: calc(100vh - 4rem);
+  }
 }
