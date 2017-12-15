@@ -4,6 +4,7 @@ import gql from 'graphql-tag';
 import Map from './Map';
 import BuildingDetails from './BuildingDetails';
 import Nav from './Nav';
+import Footer from './Footer';
 import BuildingsList from './BuildingsList';
 import About from './About';
 
@@ -21,7 +22,7 @@ class App extends Component {
       mapCenter: mapCenter,
       mapZoom: mapZoom,
       buildingHover: {},
-      isAbout: true
+      isAbout: false
     }
   }
 
@@ -93,6 +94,9 @@ class App extends Component {
         :
         <About />
         }
+        <div className="fl w-100">
+          <Footer />
+        </div>
       </div>
     );
   }

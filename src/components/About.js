@@ -140,7 +140,7 @@ const About = () => {
 
 
       <div
-        className="w-50-l ph4 pv5-l bl-l b--primary bw1 height-scroll-l overflow-scroll-l">
+        className="w-50-l ph4 pv5-l bl-l b--primary bw1-l height-scroll-l overflow-scroll-l">
 
         <div>
           <section className="pt4 pt0-l bt bn-l b--primary bw1 lh-copy">
