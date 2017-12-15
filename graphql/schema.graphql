@@ -1,4 +1,5 @@
 type Building {
+  id: Int,
   street_number: String,
   street_name: String,
   postcode: String,

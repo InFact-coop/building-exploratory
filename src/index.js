@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import AppContainer from './App';
+import AppContainer from './components/App';
 import registerServiceWorker from './registerServiceWorker';
 
 import { ApolloClient } from 'apollo-client';

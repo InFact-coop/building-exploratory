@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
-import Map from './Map.js';
-import BuildingDetails from './BuildingDetails.js';
+import Map from './Map';
+import BuildingDetails from './BuildingDetails';
+import Nav from './Nav';
+import BuildingsList from './BuildingsList';
 
 const mapCenter = [-0.1058, 51.5465];
-const mapZoom = [11.7];
+const mapZoom = 11.5;
 
 class App extends Component {
   constructor(props) {
@@ -16,7 +18,8 @@ class App extends Component {
       error: props.data.error,
       loading: props.data.loading,
       mapCenter: mapCenter,
-      mapZoom: mapZoom
+      mapZoom: mapZoom,
+      buildingHover: {}
     }
   }
 
@@ -33,29 +36,44 @@ class App extends Component {
     }
   }
 
-   buildingDetails = (clickHandlerObj, building) => {
+
+
+
+   buildingDetails = (building) => {
      // user clicked a point
      // update state for a single building
+      this.setState({
+        building: building,
+        mapCenter: [building.longitude, building.latitude],
+        mapZoom: [15.5]
+      })
+    }
 
+  closingBuildingDetails = () => {
     this.setState({
-      building: building,
-      mapCenter: [building.longitude, building.latitude],
-      mapZoom: [15.5]
+      building: {}
     })
   }
 
   render() {
-    console.log(this.state.buildings)
     return (
       <div>
-        <div className="fl w-50 pa2">
+        <Nav />
+        <div
+          className="fl w-50 overflow-scroll"
+          style={{ height: "calc(100vh - 4rem)" }}>
+            {/* logic here to display either list view or detailed view*/}
+            { !this.state.building.significance ?
+            <BuildingsList {...this.state} handleBuildingDetails={this.buildingDetails} /> :
+            <BuildingDetails {...this.state} handleClosingBuildingDetails={this.closingBuildingDetails} />
+            }
+        </div>
+        <div
+          className="fl w-50 bl bw1 b--primary"
+          style={{ height: "calc(100vh - 4rem)" }}>
           <Map
             {...this.state}
-            handleBuildingDetails={this.buildingDetails} / >
-        </div>
-        <div className="fl w-50 pa2">
-            {/* logic here to display either list view or detailed view*/}
-          <BuildingDetails building={this.state.building} />
+            handleBuildingDetails={this.buildingDetails} />
         </div>
       </div>
     );
@@ -65,6 +83,7 @@ class App extends Component {
 const query = gql`
   {
     getBuildings {
+      id
       street_number
       street_name
       postcode

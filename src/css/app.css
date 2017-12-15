@@ -1,1 +1,71 @@
 @import "tachyons";
+
+@font-face {
+  font-family: CooperHewitt;
+  src: url("./assets/fonts/CooperHewitt-Medium.woff") format("font-woff"),
+  url("./assets/fonts/CooperHewitt-Medium.ttf") format("truetype");
+}
+ 
+@font-face {
+  font-family: CooperHewitt;
+  src: url("./assets/fonts/CooperHewitt-Bold.woff") format("font-woff"),
+  url("./assets/fonts/CooperHewitt-Bold.ttf") format("truetype");
+  font-weight: bold;
+}
+
+body {
+  font-family: 'CooperHewitt',
+  sans-serif;
+}
+
+html {
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  /* remove scrollbar space */
+  background: transparent;
+  /* optional: just make scrollbar invisible */
+}
+
+
+/* optional: show position indicator in red */
+
+::-webkit-scrollbar-thumb {
+  background: #FF0000;
+}
+
+:root {
+  --primary-color: rgba(8, 8, 95, 1);
+  --primary-color-50: rgba(8, 8, 95, 0.5);
+}
+
+.primary {
+  color: var(--primary-color);
+}
+
+.bg-primary {
+  background-color: var(--primary-color);
+}
+
+.b--primary {
+  border-color: var(--primary-color);
+}
+.primary-50 {
+  color: var(--primary-color-50);
+}
+
+.bg-primary-50 {
+  background-color: var(--primary-color-50);
+}
+
+.b--primary-50 {
+  border-color: var(--primary-color-50);
+}
+
+/* overwriting tachyons */
+.f2 {
+  font-size: 2rem;
+}
