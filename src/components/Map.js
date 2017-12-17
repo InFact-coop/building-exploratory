@@ -52,8 +52,8 @@ class Map extends Component {
   }
 
   resize = () => this.onViewportChange({
-    width: this.props.width || ((window.innerWidth / 2)),
-    height: this.props.height || (window.innerHeight - 64)
+    width: this.props.width || window.innerWidth >= 960 ? ((window.innerWidth / 2)) : ((window.innerWidth)),
+    height: this.props.height || window.innerWidth >= 960 ? (window.innerHeight - 64) : (window.innerHeight)
   });
 
   updateViewport = (viewport) => {
@@ -68,7 +68,7 @@ class Map extends Component {
     this.onViewportChange({
       longitude,
       latitude,
-      zoom: 15,
+      zoom: parseInt(`${window.innerWidth <= 960 ? 14 : 15}`),
       transitionInterpolator: new FlyToInterpolator(),
       transitionDuration: 1000
     });
