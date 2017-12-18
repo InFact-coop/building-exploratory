@@ -14,8 +14,8 @@ const Footer = () => {
 
       <section className="w-33 pa2">
         <img className="w5" alt="" src={logo} />
-        
-      
+
+
         <p className="ma0 lh-copy"><a className="primary f5 no-underline " href="mailto:mail@buildingexploratory.org.uk?Subject=Hello" target="_top">mail@buildingexploratory.org.uk</a></p>
 
         <p className="ma0 lh-copy"><a className="primary f5 no-underline" href="tel:+442076080775">+44 (0)20 7608 0775</a></p>
@@ -37,10 +37,10 @@ const Footer = () => {
       <section className="w-33 pa2">
         <div className="flex align-center justify-end">
           <div>
-          <img className="w4" alt="" src={historicEngland} />
+          <img className="w4" alt="Partner: Historic England" src={historicEngland} />
           </div>
           <div>
-          <img className="w4" alt="" src={islington} />
+          <img className="w4" alt="Partner: London Borough of Islington" src={islington} />
           </div>
         </div>
       </section>
