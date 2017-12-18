@@ -16,7 +16,9 @@
     "eject": "react-scripts eject",
     "start:dev": "concurrently \"npm run start:back\" \"npm run start:front\"",
     "build-css": "tachyons src/css/app.css > src/index.css --minify",
-    "watch-css": "chokidar src/css/app.css -c 'npm run build-css'"
+    "watch-css": "chokidar src/css/app.css -c 'npm run build-css'",
+    "heroku-postbuild": "npm install && npm install --only=dev --no-shrinkwrap && npm run build",
+
   },
   "repository": {
     "type": "git",
