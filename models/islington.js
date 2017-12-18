@@ -1,7 +1,7 @@
 require("env2")("./config.env");
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const DB_URI = process.env.MONGO_DB_URI;
+const DB_URI = process.env.prod ?  process.env.MONGODB_URI : process.env.MONGO_DB_URI;
 
 mongoose.Promise = global.Promise;
 
