@@ -8,7 +8,7 @@ import Nav from './Nav';
 import Footer from './Footer';
 import BuildingsList from './BuildingsList';
 import About from './About';
-import MapSwitch from './svg/MapSwitch';
+import SwitchMap from './svg/SwitchMap';
 
 const mapCenter = [-0.1058, 51.5465];
 const mapZoom = 11.5;
@@ -83,7 +83,7 @@ class App extends Component {
       <div>
         <Nav handleIsAboutPage={this.isAboutPage} isAbout={this.state.isAbout} />
         { !this.state.building.significance && window.innerWidth <= 960 &&
-          <div onClick={() => this.toggleMapViewMobile() } className={`${mapSwitchClasses} bg-transparent`}><MapSwitch /></div>
+          <div onClick={() => this.toggleMapViewMobile() } className={`${mapSwitchClasses} bg-transparent`}><SwitchMap /></div>
         }
         {/* logic here to display either home page or about page  */}
         { !this.state.isAbout ?
