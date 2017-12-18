@@ -9,6 +9,8 @@ import Shop from './svg/Shop';
 import Worship from './svg/Worship';
 import BuildingFact from './BuildingFact.js';
 import BuildingImage from './BuildingImage';
+import Location from './svg/Location';
+
 
 const BuildingDetails = ({ building, handleClosingBuildingDetails }) => {
   const {
@@ -62,7 +64,7 @@ const BuildingDetails = ({ building, handleClosingBuildingDetails }) => {
                   // if buildingname then show that else show stree name and things
                     street_number } { street_name }
                 </h2>
-                <h4 className="ma0 tt4 fw5 f5"> <span> </span> {postcode} </h4>
+                <h4 className="ma0 tt4 fw5 f5"> <span> <Location /> </span> {postcode} </h4>
               </div>
             </div>
 
