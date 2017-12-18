@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactMapGL, { FlyToInterpolator } from 'react-map-gl';
 
 import Markers from './Markers.js';
+import Banner from './Banner';
 
 class Map extends Component {
 
@@ -16,7 +17,7 @@ class Map extends Component {
         bearing: 0,
         pitch: 0,
         width: ((window.innerWidth / 2)),
-        height: (window.innerHeight - 64),
+        height: (window.innerHeight - 150),
       },
       hovering: false,
       id: undefined,
@@ -53,7 +54,7 @@ class Map extends Component {
 
   resize = () => this.onViewportChange({
     width: this.props.width || window.innerWidth >= 960 ? ((window.innerWidth / 2)) : ((window.innerWidth)),
-    height: this.props.height || window.innerWidth >= 960 ? (window.innerHeight - 64) : (window.innerHeight)
+    height: this.props.height || window.innerWidth >= 960 ? (window.innerHeight - 150) : (window.innerHeight)
   });
 
   updateViewport = (viewport) => {
@@ -89,6 +90,8 @@ class Map extends Component {
     const { viewport } = this.state;
 
     return (
+      <div>
+      <Banner />
       <ReactMapGL
         { ...viewport }
         mapboxApiAccessToken={'pk.eyJ1Ijoic29oaWxwYW5keWEiLCJhIjoiY2phODdiMnM1MDQybjMycGZ3ZTE0d3RsOCJ9.4WBBpoMgECNDbRL4BahGhQ'}
@@ -105,6 +108,7 @@ class Map extends Component {
             />
           }
       </ReactMapGL>
+      </div>
     )
   }
 }
