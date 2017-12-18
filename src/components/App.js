@@ -135,6 +135,7 @@ const query = gql`
       street_name
       postcode
       ward
+      building_name
       conservation_area
       date_built_actual
       date_built_estimate

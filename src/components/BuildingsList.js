@@ -20,7 +20,7 @@ class BuildingsList extends Component {
     })
 
     return (
-      <div className="flex flex-wrap justify-between ml4 mt4">
+      <div className="flex flex-wrap justify-center mt4 tc">
         {buildingCards}
       </div>
     )
