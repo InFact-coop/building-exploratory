@@ -2,6 +2,7 @@ import React from 'react';
 
 const Fb = () => {
     return (
+      <a href="https://www.facebook.com/thebuildingexploratory" target="_blank">
         <svg width="46px" height="45px" viewBox="0 0 46 45" version="1.1">
             <title>fb</title>
             <desc>Created with Sketch.</desc>
@@ -20,6 +21,7 @@ const Fb = () => {
                 </g>
             </g>
         </svg>
+      </a>
     )
 }
 

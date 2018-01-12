@@ -2,6 +2,7 @@ import React from 'react';
 
 const Instagram = () => {
     return (
+      <a href="https://www.instagram.com/buildingexploratory" target="_blank">
         <svg width="46px" height="45px" viewBox="0 0 46 45" version="1.1">
             <title>instagram</title>
             <desc>Created with Sketch.</desc>
@@ -24,6 +25,7 @@ const Instagram = () => {
                 </g>
             </g>
         </svg>
+      </a>
     )
 }
 

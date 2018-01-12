@@ -32,10 +32,10 @@ const Footer = () => {
       <section className="w-33-l pa2">
         <div className="flex align-center justify-end">
           <div>
-          <img className="w4" alt="" src={historicEngland} />
+          <img className="w4" alt="Partner: Historic England" src={historicEngland} />
           </div>
           <div>
-          <img className="w4" alt="" src={islington} />
+          <img className="w4" alt="Partner: London Borough of Islington" src={islington} />
           </div>
         </div>
       </section>
