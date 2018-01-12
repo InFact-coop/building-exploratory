@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 import Map from './Map';
@@ -22,6 +23,7 @@ class App extends Component {
       mapCenter: mapCenter,
       mapZoom: mapZoom,
       buildingHover: {},
+      selectedBuildingRef: undefined,
       isAbout: false
     }
   }
@@ -42,14 +44,18 @@ class App extends Component {
    buildingDetails = (building) => {
      // user clicked a point
      // update state for a single building
+     console.log(building.id)
+     console.log(building.longitude)
+     console.log(building.latitude)
       this.setState({
         building: building,
         mapCenter: [building.longitude, building.latitude],
-        mapZoom: [15.5]
+        mapZoom: [15.5],
       })
     }
 
   closingBuildingDetails = () => {
+
     this.setState({
       building: {}
     })
@@ -66,7 +72,6 @@ class App extends Component {
 
   render() {
 
-    console.log(this.state.isAbout, 'changed state for isAbout')
     return (
       <div>
         <Nav handleIsAboutPage={this.isAboutPage} />
@@ -79,7 +84,17 @@ class App extends Component {
               style={{ height: "calc(100vh - 4rem)" }}>
                 {/* logic here to display either list view or detailed view*/}
                 { !this.state.building.significance ?
-                <BuildingsList {...this.state} handleBuildingDetails={this.buildingDetails} /> :
+                <BuildingsList
+                  {...this.state}
+                  handleBuildingDetails={this.buildingDetails}
+                  inputRef={el => {
+                    this.testElem = el;
+                    if (el && el.id == this.state.selectedBuildingRef) {
+                      this.testElem.scrollIntoView();
+                      window.scrollBy(0, -65);
+                    }
+                  }}
+                 /> :
                 <BuildingDetails {...this.state} handleClosingBuildingDetails={this.closingBuildingDetails} />
                 }
             </div>

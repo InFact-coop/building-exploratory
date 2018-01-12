@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import GridIcon from './svg/GridIcon';
 import Education from './svg/Education';
 import Home from './svg/Home';
@@ -11,67 +12,80 @@ import BuildingFact from './BuildingFact.js';
 import BuildingImage from './BuildingImage';
 import Location from './svg/Location';
 
+class BuildingDetails extends Component {
 
-const BuildingDetails = ({ building, handleClosingBuildingDetails }) => {
-  const {
+  constructor(props) {
+    super(props)
+  }
+
+  componentDidMount() {
+    ReactDOM.findDOMNode(this).scrollIntoView()
+    window.scrollBy(0, -65);
+  }
+
+  render() {
+
+    const { building, handleClosingBuildingDetails } = this.props;
+
+    const {
     street_number,
-    street_name,
-    postcode,
-    ward,
-    conservation_area,
-    date_built_actual,
-    date_built_estimate,
-    architectural_style,
-    building_type,
-    current_use,
-    description,
-    date_local_listing,
-    significance,
-    recommendation,
-    latitude,
-    longitude,
-    featured_image,
-    second_image,
-    third_image,
-    fourth_image,
-    fifth_image
-   } = building
+      street_name,
+      postcode,
+      ward,
+      conservation_area,
+      date_built_actual,
+      date_built_estimate,
+      architectural_style,
+      building_type,
+      current_use,
+      description,
+      date_local_listing,
+      significance,
+      recommendation,
+      latitude,
+      longitude,
+      featured_image,
+      second_image,
+      third_image,
+      fourth_image,
+      fifth_image
+   } = building;
 
-  return (
-    <main className="pa4 primary">
-      <header>
-        <div>
-          <div className="tr" role="button" onClick={() => { handleClosingBuildingDetails() }}>
-              <GridIcon />
-          </div>
+    return (
+      <main className="pa4 primary">
+        <header>
           <div>
-
-            <div className="flex items-end mb4">
-              {
-                <div>
-                  <Home />
-                  <Education />
-                  <Industrial />
-                  <Other />
-                  <Public />
-                  <Shop />
-                  <Worship />
-                </div>
-              }
-              <div className="pl3">
-                <h2 className="ma0 f3 ttc">{
-                  // TODO
-                  // if buildingname then show that else show stree name and things
-                    street_number } { street_name }
-                </h2>
-                <h4 className="ma0 tt4 fw5 f5"> <span> <Location /> </span> {postcode} </h4>
-              </div>
+            <div className="tr" role="button" onClick={() => { handleClosingBuildingDetails() }}>
+              <GridIcon />
             </div>
+            <div>
+
+              <div className="flex items-end mb4">
+                {
+                  <div>
+                    <Home />
+                    <Education />
+                    <Industrial />
+                    <Other />
+                    <Public />
+                    <Shop />
+                    <Worship />
+                  </div>
+                }
+                <div className="pl3">
+                  <h2 className="ma0 f3 ttc">{
+                    // TODO
+                    // if buildingname then show that else show stree name and things
+                    street_number} {street_name}
+                  </h2>
+                  <h4 className="ma0 tt4 fw5 f5"> <span> <Location /> </span> {postcode} </h4>
+                </div>
+              </div>
 
 
+            </div>
           </div>
-        </div>
-      </header>
+        </header>
 
       <section>
         <h4 className="ma0 primary f5 b"> Historic Significance </h4>
@@ -93,10 +107,10 @@ const BuildingDetails = ({ building, handleClosingBuildingDetails }) => {
         </div>
       </section>
 
-      <section>
-        <h4 className="ma0 f5 b"> Description  </h4>
-        <p>{description}</p>
-      </section>
+        <section>
+          <h4 className="ma0 f5 b"> Description  </h4>
+          <p>{description}</p>
+        </section>
 
       <section>
         <BuildingImage image={ featured_image } />
@@ -107,6 +121,8 @@ const BuildingDetails = ({ building, handleClosingBuildingDetails }) => {
       </section>
     </main>
   );
+};
+
 };
 
 export default BuildingDetails;

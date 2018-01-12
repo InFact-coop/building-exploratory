@@ -30,6 +30,8 @@ class BuildingCard extends Component {
 
     return (
       <div
+        ref={this.props.inputRef}
+        id={building.id}
         className={`${this.state.hovering ? 'b--primary-50' : 'b--primary'} ba bw1 w-100 w-40-ns flex-grow-1 mb4 mr4`}
         onMouseEnter={() => { this.onHover(); }}
         onMouseLeave={() => { this.onHover(); }}

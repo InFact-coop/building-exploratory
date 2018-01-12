@@ -4,6 +4,7 @@ const createDataObj = (data) => {
       id: ++i,
       street_number: item['Street Number'],
       street_name: item['Lower Case Street Name'],
+      building_name: item['Lower Case Building Name'],
       postcode: item['Post Code'],
       ward: item['Ward'],
       conservation_area: item['Conservation Area'],

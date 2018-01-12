@@ -33,6 +33,24 @@ class Map extends Component {
     window.removeEventListener('resize', this.resize);
   }
 
+  shouldComponentUpdate(nextProps, prevState) {
+    if (nextProps.building.significance && !prevState.selectedBuildingId) {
+      console.log(nextProps.building.id, 'building id nextprop')
+      console.log(nextProps.building.longitude, 'building longitude nextprop')
+      console.log(nextProps.building.latitude, 'building latitude nextprop')
+      this.selectedBuilding(nextProps.building.id);
+      let longitude = nextProps.building.longitude;
+      let latitude = nextProps.building.latitude;
+      this.goToViewport({ longitude, latitude });
+    } else if (!nextProps.building.significance && prevState.selectedBuildingId) {
+      this.setState({
+        selectedBuildingId: undefined
+      })
+    }
+    return true;
+
+  }
+
   resize = () => this.onViewportChange({
     width: this.props.width || ((window.innerWidth / 2)),
     height: this.props.height || (window.innerHeight - 64)
@@ -64,7 +82,6 @@ class Map extends Component {
   selectedBuilding = (id) => {
     this.setState({ selectedBuildingId: id })
   }
-
 
   render() {
 

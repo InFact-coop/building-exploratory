@@ -2,6 +2,7 @@ import React from 'react';
 
 const Twitter = () => {
     return (
+      <a href="https://www.twitter.com/buildingexplore" target="_blank">
         <svg width="45px" height="45px" viewBox="0 0 45 45" version="1.1">
             <title>twitter</title>
             <desc>Created with Sketch.</desc>
@@ -20,6 +21,7 @@ const Twitter = () => {
                 </g>
             </g>
         </svg>
+      </a>
     )
 }
 

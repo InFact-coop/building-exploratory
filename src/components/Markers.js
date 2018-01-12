@@ -11,20 +11,21 @@ const Markers = ({
   buildings = [], handleBuildingDetails, hoveringItem, selectedBuilding,
   goToViewport, hovering, id, selectedBuildingId
 }) => {
-
 const allMarkers = buildings.length > 0 && buildings.map((buildingObj, i) => {
+  let counter = ++i;
+
     return (
       <Marker
-      key={i}
+      key={counter}
       longitude={buildingObj.longitude}
       latitude={buildingObj.latitude}>
 
       <div
         onMouseEnter={(obj) => {
-          hoveringItem(i);
+          hoveringItem(counter);
         }}
         onClick={() => {
-          selectedBuilding(i);
+          selectedBuilding(counter);
           handleBuildingDetails(buildingObj);
           let longitude = buildingObj.longitude;
           let latitude = buildingObj.latitude;
@@ -36,7 +37,7 @@ const allMarkers = buildings.length > 0 && buildings.map((buildingObj, i) => {
       >
 
       {
-        (hovering && id === i) || selectedBuildingId === i ? <MarkerFilled /> : <MarkerEmpty />
+        (hovering && id === counter) || selectedBuildingId === counter ? <MarkerFilled /> : <MarkerEmpty />
       }
 
       </div>
