@@ -50,7 +50,6 @@ class BuildingDetails extends Component {
       fourth_image,
       fifth_image
    } = building;
-   
 
    const buildingType = () => {
        switch (true) {

@@ -6,10 +6,10 @@ const removeAndLoadData = require('./models/queries/removeAndLoadData');
 const migrate = () => {
   const showInfo = (data, tabletop) => {
     const requiredData = createDataObj(data);
-    removeAndLoadData(requiredData);  
+    removeAndLoadData(requiredData);
   };
 
-  tabletop.init({ 
+  tabletop.init({
     key: process.env.GOOGLE_SPREADSHEET_KEY,
     callback: showInfo,
     simpleSheet: true,
