@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import AppContainer from './components/App';
 import registerServiceWorker from './registerServiceWorker';
+import 'core-js/fn/array/find';
+import 'core-js/fn/reflect';
 
 import { ApolloClient } from 'apollo-client';
 import { HttpLink } from 'apollo-link-http';
