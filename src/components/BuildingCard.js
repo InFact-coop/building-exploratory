@@ -25,19 +25,20 @@ class BuildingCard extends Component {
     const imgStyle = {
       backgroundImage: `url(${optimisedImg})`,
       width: "100%",
-      height: "20rem"
+      height: "16rem"
     }
 
+    const buildingName = building.building_name ? building.building_name : `${building.street_number} ${building.street_name}`;
     return (
       <div
         ref={this.props.inputRef}
         id={building.id}
-        className={`${this.state.hovering ? 'b--primary-50' : 'b--primary'} ba bw1 w-100 w-40-ns flex-grow-1 mb4 mr4`}
+        className={`${this.state.hovering ? 'b--primary-50' : 'b--primary'} ba bw1 w5 mw5 ma2 mt1`}
         onMouseEnter={() => { this.onHover(); }}
         onMouseLeave={() => { this.onHover(); }}
         onClick={() => { this.onHover(); handleBuildingDetails(building); }}>
-        <div className={`${this.state.hovering ? 'b--primary-50' : 'b--primary'} bb bw1 pa3`}>
-          <p className="ma0 tc primary b f5 ttc">{building.street_number} {building.street_name}</p>
+        <div className={`${this.state.hovering ? 'b--primary-50' : 'b--primary'} bb bw1 h3 pa3 flex justify-center items-center`}>
+          <p className="ma0 tc primary b f5 ttc">{ buildingName }</p>
         </div>
         <div style={imgStyle} className="cover bg-center">
         </div>

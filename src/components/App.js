@@ -8,6 +8,7 @@ import Nav from './Nav';
 import Footer from './Footer';
 import BuildingsList from './BuildingsList';
 import About from './About';
+import MapSwitch from './svg/MapSwitch';
 
 const mapCenter = [-0.1058, 51.5465];
 const mapZoom = 11.5;
@@ -24,7 +25,8 @@ class App extends Component {
       mapZoom: mapZoom,
       buildingHover: {},
       selectedBuildingRef: undefined,
-      isAbout: false
+      isAbout: false,
+      mapViewMobile: true
     }
   }
 
@@ -44,9 +46,6 @@ class App extends Component {
    buildingDetails = (building) => {
      // user clicked a point
      // update state for a single building
-     console.log(building.id)
-     console.log(building.longitude)
-     console.log(building.latitude)
       this.setState({
         building: building,
         mapCenter: [building.longitude, building.latitude],
@@ -62,26 +61,36 @@ class App extends Component {
   }
 
   isAboutPage = () => {
-    console.log('callled isAboutPahge listener');
     this.setState({
       isAbout: !this.state.isAbout
     })
-
-
   }
 
+  toggleMapViewMobile = () => {
+    this.setState({
+      mapViewMobile: !this.state.mapViewMobile
+    });
+    window.scrollTo(0, -65);
+  }
+
+
+
   render() {
+    const mapClasses = (this.state.building.significance && window.innerWidth <= 960) || !this.state.mapViewMobile ? "dn" : "db";
+    const mapSwitchClasses = (window.innerWidth <= 960) ? "fixed bottom-1 right-1 z-max" : "dn";
 
     return (
       <div>
-        <Nav handleIsAboutPage={this.isAboutPage} />
+        <Nav handleIsAboutPage={this.isAboutPage} isAbout={this.state.isAbout} />
+        { !this.state.building.significance && window.innerWidth <= 960 &&
+          <div onClick={() => this.toggleMapViewMobile() } className={`${mapSwitchClasses} bg-transparent`}><MapSwitch /></div>
+        }
         {/* logic here to display either home page or about page  */}
         { !this.state.isAbout ?
 
-          <section>
+          <section className="flex flex-column-reverse flex-row-l ">
             <div
-              className="fl w-50 overflow-scroll"
-              style={{ height: "calc(100vh - 4rem)" }}>
+              className="w-50-l overflow-scroll height-scroll-l">
                 {/* logic here to display either list view or detailed view*/}
                 { !this.state.building.significance ?
                 <BuildingsList
@@ -98,13 +107,14 @@ class App extends Component {
                 <BuildingDetails {...this.state} handleClosingBuildingDetails={this.closingBuildingDetails} />
                 }
             </div>
-            <div
-              className="fl w-50 bl bw1 b--primary"
-              style={{ height: "calc(100vh - 4rem)" }}>
+            {
+              <div
+              className={`${mapClasses} w-50-l bl-l bw1-l b--primary height-scroll-l`}>
               <Map
-                {...this.state}
-                handleBuildingDetails={this.buildingDetails} />
-            </div>
+              {...this.state}
+              handleBuildingDetails={this.buildingDetails} />
+              </div>
+            }
           </section>
         :
         <About />
@@ -125,6 +135,7 @@ const query = gql`
       street_name
       postcode
       ward
+      building_name
       conservation_area
       date_built_actual
       date_built_estimate

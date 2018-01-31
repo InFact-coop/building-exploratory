@@ -50,6 +50,29 @@ class BuildingDetails extends Component {
       fourth_image,
       fifth_image
    } = building;
+   
+
+   const buildingType = () => {
+       switch (true) {
+         case (building_type.includes('Home')):
+           return <Home />
+         case (building_type.includes('School')):
+           return <Education />;
+         case (building_type.includes('Factory') || building_type.includes('Warehouse')):
+           return <Industrial />;
+         case (building_type.includes('Church')):
+           return <Worship />;
+         case (building_type.includes('Shop')):
+           return <Shop />;
+         case (building_type.includes('Public')):
+           return <Public />;
+         default:
+         console.log('DEAFULT');
+           return (
+             <Other />
+           );
+       }
+   }
 
     return (
       <main className="pa4 primary">
@@ -61,17 +84,7 @@ class BuildingDetails extends Component {
             <div>
 
               <div className="flex items-end mb4">
-                {
-                  <div>
-                    <Home />
-                    <Education />
-                    <Industrial />
-                    <Other />
-                    <Public />
-                    <Shop />
-                    <Worship />
-                  </div>
-                }
+                { buildingType() }
                 <div className="pl3">
                   <h2 className="ma0 f3 ttc">{
                     // TODO
