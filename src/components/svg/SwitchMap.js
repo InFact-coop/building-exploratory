@@ -1,6 +1,6 @@
 import React from 'react';
 
-const MapSwitch = () => {
+const SwitchMap = () => {
 return (
   <svg width="55px" height="45px" viewBox="0 0 445 345" version="1.1" >
   <title>noun_943099_cc</title>
@@ -18,4 +18,4 @@ return (
 
 }
 
-export default MapSwitch;
+export default SwitchMap;

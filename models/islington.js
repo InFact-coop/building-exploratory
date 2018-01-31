@@ -1,15 +1,18 @@
 require("env2")("./config.env");
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const DB_URI = process.env.MONGO_DB_URI;
+const DB_URI = process.env.NODE_ENV === 'production' ?  process.env.MONGODB_URI : process.env.MONGO_DB_URI;
 
 mongoose.Promise = global.Promise;
 
 mongoose.connect(DB_URI, { useMongoClient: true }).then(db => {
   db.on("error", console.error.bind(console, "connection error:"));
+
   db.once("open", () => {
     console.log("connected to mongoose");
   });
+}).catch((error)=> {
+  console.log(error);
 });
 
 const islingtonSchema = new Schema({

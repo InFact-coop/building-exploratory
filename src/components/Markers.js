@@ -31,6 +31,13 @@ const allMarkers = buildings.length > 0 && buildings.map((buildingObj, i) => {
           let latitude = buildingObj.latitude;
           goToViewport({longitude, latitude});
         }}
+        onTouchStart={() => {
+          selectedBuilding(counter);
+          handleBuildingDetails(buildingObj);
+          let longitude = buildingObj.longitude;
+          let latitude = buildingObj.latitude;
+          goToViewport({longitude, latitude});
+        }}
         onMouseLeave={(obj) => {
           hoveringItem(null);
         }}
