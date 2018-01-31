@@ -41,6 +41,7 @@
     "apollo-client-preset": "^1.0.3",
     "apollo-link-http": "^1.2.0",
     "chokidar-cli": "^1.2.0",
+    "core-js": "^2.5.3",
     "express": "^4.16.2",
     "express-graphql": "^0.6.11",
     "graphql": "^0.11.7",
@@ -55,7 +56,8 @@
     "react-scripts": "1.0.17",
     "tabletop": "^1.5.2",
     "tachyons": "^4.9.0",
-    "tachyons-cli": "^1.2.0"
+    "tachyons-cli": "^1.2.0",
+    "unfetch": "^3.0.0"
   },
   "devDependencies": {
     "concurrently": "^3.5.0",

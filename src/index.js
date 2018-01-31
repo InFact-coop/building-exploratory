@@ -3,6 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import AppContainer from './components/App';
 import registerServiceWorker from './registerServiceWorker';
+import 'core-js/fn/array/find';
+import 'core-js/fn/array/from';
+import 'core-js/es6/reflect';
+import 'core-js/es6/number';
+import fetch from 'unfetch';
 
 import { ApolloClient } from 'apollo-client';
 import { HttpLink } from 'apollo-link-http';
@@ -10,7 +15,7 @@ import { InMemoryCache } from 'apollo-cache-inmemory';
 import { ApolloProvider } from 'react-apollo';
 
 const client = new ApolloClient({
-  link: new HttpLink(),
+  link: new HttpLink({fetch}),
   cache: new InMemoryCache()
 });
 
