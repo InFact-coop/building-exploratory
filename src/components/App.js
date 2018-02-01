@@ -50,7 +50,7 @@ class App extends Component {
       this.setState({
         building: building,
         mapCenter: [building.longitude, building.latitude],
-        mapZoom: [15.5],
+        mapZoom: 15.5,
       })
     }
 
@@ -64,7 +64,8 @@ class App extends Component {
   isHomePage = () => {
     this.setState({
       isHome: true,
-      isAbout: false
+      isAbout: false,
+      building: {}
     });
   }
 

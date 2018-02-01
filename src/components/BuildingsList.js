@@ -12,10 +12,10 @@ class BuildingsList extends Component {
   render() {
     const { buildings = [], handleBuildingDetails } = this.props;
     const buildingCards = buildings.map((building, i) => {
-      return <BuildingCard 
-        key={i} 
-        building={building} 
-        handleBuildingDetails={handleBuildingDetails} 
+      return <BuildingCard
+        key={i}
+        building={building}
+        handleBuildingDetails={handleBuildingDetails}
         inputRef={this.props.inputRef}/>
     })
 
