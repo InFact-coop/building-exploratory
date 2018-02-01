@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ReactMapGL, { FlyToInterpolator } from 'react-map-gl';
+import ReactMapGL, { FlyToInterpolator, NavigationControl } from 'react-map-gl';
 
 import Markers from './Markers.js';
 import Banner from './Banner';
@@ -88,6 +88,12 @@ class Map extends Component {
 
     const { buildings = [], handleBuildingDetails } = this.props;
     const { viewport } = this.state;
+    const navStyle = {
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      padding: '10px'
+    };
 
     return (
       <div>
@@ -107,6 +113,10 @@ class Map extends Component {
               goToViewport={this.goToViewport}
             />
           }
+
+          <div className="nav" style={navStyle}>
+            <NavigationControl onViewportChange={this.updateViewport} />
+          </div>
       </ReactMapGL>
       </div>
     )
