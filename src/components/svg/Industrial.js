@@ -2,7 +2,7 @@ import React from 'react';
 
 const Industrial = () => {
   return (
-    <svg width="60px" height="100px" viewBox="0 0 323 545" version="1.1">
+    <svg role="img" aria-label="Industrial" width="60px" height="100px" viewBox="0 0 323 545" version="1.1">
     <title>industrial_building</title>
       <desc>Created with Sketch.</desc>
       <defs>

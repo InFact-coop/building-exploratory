@@ -2,7 +2,7 @@ import React from 'react';
 
 const Other = () => {
   return (
-    <svg width="60px" height="100px" viewBox="0 0 103 509" version="1.1">
+    <svg role="img" aria-label="Other Structure"  width="60px" height="100px" viewBox="0 0 103 509" version="1.1">
     <title>other</title>
       <desc>Created with Sketch.</desc>
       <defs></defs>

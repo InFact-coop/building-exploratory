@@ -2,7 +2,7 @@ import React from 'react';
 
 const Education = () => {
   return (
-    <svg width="60px" height="100px" viewBox="0 0 248 508" version="1.1">
+    <svg role="img" aria-label="Education" width="60px" height="100px" viewBox="0 0 248 508" version="1.1">
     <title>Education_building</title>
       <desc>Created with Sketch.</desc>
       <defs>

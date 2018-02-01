@@ -2,7 +2,7 @@ import React from 'react';
 
 const Home = () => {
   return (
-    <svg width="60px" height="100px" viewBox="0 0 313 514" version="1.1">
+    <svg role="img" aria-label="Home" width="60px" height="100px" viewBox="0 0 313 514" version="1.1">
     <title>Home_building</title>
       <desc>Created with Sketch.</desc>
       <defs>
