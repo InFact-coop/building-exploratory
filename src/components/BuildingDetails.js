@@ -84,7 +84,7 @@ class BuildingDetails extends Component {
 
               <div className="flex items-end mb4">
                 { buildingType() }
-                <div className="pl3">
+                <div className="pl3 w-80">
                   <h2 className="ma0 f3 ttc">{
                     // TODO
                     // if buildingname then show that else show stree name and things
