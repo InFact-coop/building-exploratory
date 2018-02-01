@@ -120,7 +120,7 @@ class BuildingDetails extends Component {
       </section>
 
         <section>
-          <h4 className="ma0 f5 b"> Description  </h4>
+          <h4 className="f5 b"> Description  </h4>
           <p>{description}</p>
         </section>
 

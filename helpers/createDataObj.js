@@ -1,10 +1,19 @@
 const createDataObj = (data) => {
   return data.map((item, i) => {
+
+    let display_name;
+    if (item['Lower Case Building Name']) {
+      display_name = item['Lower Case Building Name']
+    } else {
+      display_name = item['Lower Case Street Name'];
+    }
+
     return {
       id: ++i,
       street_number: item['Street Number'],
       street_name: item['Lower Case Street Name'],
       building_name: item['Lower Case Building Name'],
+      display_name: display_name,
       postcode: item['Post Code'],
       ward: item['Ward'],
       conservation_area: item['Conservation Area'],
