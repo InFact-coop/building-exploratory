@@ -25,6 +25,7 @@ class App extends Component {
       mapZoom: mapZoom,
       buildingHover: {},
       selectedBuildingRef: undefined,
+      isHome: true,
       isAbout: false,
       mapViewMobile: true
     }
@@ -60,10 +61,18 @@ class App extends Component {
     })
   }
 
+  isHomePage = () => {
+    this.setState({
+      isHome: true,
+      isAbout: false
+    });
+  }
+
   isAboutPage = () => {
     this.setState({
-      isAbout: !this.state.isAbout
-    })
+      isAbout: !this.state.isAbout,
+      isHome: !this.state.isHome
+    });
   }
 
   toggleMapViewMobile = () => {
@@ -81,13 +90,12 @@ class App extends Component {
 
     return (
       <div>
-        <Nav handleIsAboutPage={this.isAboutPage} isAbout={this.state.isAbout} />
+        <Nav handleIsHomePage={this.isHomePage} handleIsAboutPage={this.isAboutPage} isAbout={this.state.isAbout} />
         { !this.state.building.significance && window.innerWidth <= 960 &&
           <div onClick={() => this.toggleMapViewMobile() } className={`${mapSwitchClasses} bg-transparent`}><SwitchMap /></div>
         }
         {/* logic here to display either home page or about page  */}
-        { !this.state.isAbout ?
-
+        { this.state.isHome &&
           <section className="flex flex-column-reverse flex-row-l ">
             <div
               className="w-50-l overflow-scroll height-scroll-l">
@@ -116,8 +124,9 @@ class App extends Component {
               </div>
             }
           </section>
-        :
-        <About />
+        }
+        { this.state.isAbout &&
+          <About />
         }
         <div className="fl w-100">
           <Footer />
