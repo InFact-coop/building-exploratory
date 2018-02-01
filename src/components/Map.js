@@ -36,9 +36,6 @@ class Map extends Component {
 
   shouldComponentUpdate(nextProps, prevState) {
     if (nextProps.building.significance && !prevState.selectedBuildingId) {
-      console.log(nextProps.building.id, 'building id nextprop')
-      console.log(nextProps.building.longitude, 'building longitude nextprop')
-      console.log(nextProps.building.latitude, 'building latitude nextprop')
       this.selectedBuilding(nextProps.building.id);
       let longitude = nextProps.building.longitude;
       let latitude = nextProps.building.latitude;
@@ -76,7 +73,6 @@ class Map extends Component {
   }
 
   hoveringItem = (id) => {
-    console.log('hovering in hovering item')
     this.setState({ hovering: !this.state.hovering, id } )
   }
 

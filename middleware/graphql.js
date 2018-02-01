@@ -9,7 +9,7 @@ const grapqlSchema = buildSchema(
 );
 
 const getBuildings = async () => {
-  return await islington.find().sort({ id: 1 });
+  return await islington.find().sort({ display_name: 1 });
 };
 
 module.exports = graphqlHTTP({
