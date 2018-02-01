@@ -12,7 +12,7 @@ const Nav = ({ handleIsHomePage, handleIsAboutPage, isAbout }) => {
       </div>
 
       <p
-        className="ma0 primary pointer pt1 pl1 pr3" onClick = { () => { handleIsAboutPage()} }
+        className="ma0 primary pointer pt1 pl1 pr3 b underline f4-l" onClick = { () => { handleIsAboutPage()} }
         > { isAbout ? 'Home' : 'About' } </p>
     </nav>
   );
