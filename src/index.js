@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import AppContainer from './components/App';
+import UpdateData from './components/UpdateData';
 import registerServiceWorker from './registerServiceWorker';
 import 'core-js/fn/array/find';
 import 'core-js/fn/array/from';
@@ -9,6 +10,7 @@ import 'core-js/es6/reflect';
 import 'core-js/es6/number';
 import fetch from 'unfetch';
 
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { ApolloClient } from 'apollo-client';
 import { HttpLink } from 'apollo-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
@@ -20,9 +22,13 @@ const client = new ApolloClient({
 });
 
 ReactDOM.render(
-  <ApolloProvider client={client}>
-    <AppContainer
-      />
-  </ApolloProvider>,
+  <Router>
+    <div>
+      <ApolloProvider client={client}>
+        <Route exact path="/" component={AppContainer} />
+      </ApolloProvider>
+      <Route exact path="/push-latest-changes-from-google-sheet" component={UpdateData} />
+    </div>
+  </Router>,
   document.getElementById('root'));
 registerServiceWorker();
