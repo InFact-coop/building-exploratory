@@ -3,8 +3,7 @@ import React from 'react';
 const Education = () => {
   return (
     <svg width="60px" height="100px" viewBox="0 0 248 508" version="1.1">
-    <title>Education_building</title>
-      <desc>Created with Sketch.</desc>
+    <title>Education Building</title>
       <defs>
         <rect id="path-1" x="6.10000002" y="71.1" width="67" height="4"></rect>
       </defs>
@@ -161,4 +160,3 @@ const Education = () => {
 }
 
 export default Education;
-

@@ -3,8 +3,7 @@ import React from 'react';
 const Public = () => {
   return (
     <svg width="60px" height="100px" viewBox="0 0 262 510" version="1.1">
-    <title>public_building</title>
-      <desc>Created with Sketch.</desc>
+    <title>Public Building</title>
       <defs></defs>
       <g id="illustrations" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
         <g id="Public-Building" transform="translate(-78.000000, -76.000000)">
@@ -107,7 +106,3 @@ const Public = () => {
 }
 
 export default Public;
-
-
-
-
