@@ -3,8 +3,7 @@ import React from 'react';
 const Worship = () => {
   return (
     <svg width="60px" height="100px" viewBox="0 0 284 572" version="1.1">
-    <title>worship</title>
-      <desc>Created with Sketch.</desc>
+    <title>Place of Worship</title>
       <defs></defs>
       <g id="illustrations" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
         <g id="Place-of-Worship" transform="translate(-109.000000, -74.000000)">
@@ -152,7 +151,3 @@ const Worship = () => {
 }
 
 export default Worship;
-
-
-
-

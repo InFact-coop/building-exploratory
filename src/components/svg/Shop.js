@@ -3,8 +3,7 @@ import React from 'react';
 const Shop = () => {
   return (
     <svg width="60px" height="40px" viewBox="0 0 516 358" version="1.1">
-    <title>shop</title>
-      <desc>Created with Sketch.</desc>
+    <title>Shop</title>
       <defs></defs>
       <g id="illustrations" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
         <g id="Public-House" transform="translate(-17.000000, -230.000000)">
@@ -61,7 +60,3 @@ const Shop = () => {
 }
 
 export default Shop;
-
-
-
-

@@ -3,8 +3,7 @@ import React from 'react';
 const Location = () => {
   return (
     <svg width="14px" height="16px" viewBox="0 0 14 16" version="1.1">
-    <title>Shape</title>
-      <desc>Created with Sketch.</desc>
+    <title>Location</title>
       <defs></defs>
       <g id="app" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
         <g id="Homepage_single_list_view_with_illustrations" transform="translate(-30.000000, -183.000000)" fillRule="nonzero" fill="#08085F">
@@ -22,7 +21,3 @@ const Location = () => {
 }
 
 export default Location;
-
-
-
-

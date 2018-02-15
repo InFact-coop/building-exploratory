@@ -3,8 +3,7 @@ import React from 'react';
 const Industrial = () => {
   return (
     <svg width="60px" height="100px" viewBox="0 0 323 545" version="1.1">
-    <title>industrial_building</title>
-      <desc>Created with Sketch.</desc>
+    <title>Industrial Building</title>
       <defs>
         <path d="M60,22.6945899 L60,72 L6,72 L6,22.1408632 C13.5893426,17.0017366 22.7441247,14 32.6,14 C42.8047449,14 52.2578849,17.2180033 60,22.6945899 L60,22.6945899 Z" id="path-1"></path>
         <path d="M60,22.6945899 L60,72 L6,72 L6,22.1408632 C13.5893426,17.0017366 22.7441247,14 32.6,14 C42.8047449,14 52.2578849,17.2180033 60,22.6945899 L60,22.6945899 Z" id="path-2"></path>
@@ -249,4 +248,3 @@ const Industrial = () => {
 }
 
 export default Industrial;
-
