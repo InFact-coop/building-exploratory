@@ -53,6 +53,7 @@
     "react-dom": "^16.1.1",
     "react-map-gl": ">=3.2.0-alpha.1",
     "react-mapbox-gl": "^2.8.0",
+    "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.17",
     "tabletop": "^1.5.2",
     "tachyons": "^4.9.0",

@@ -4,13 +4,15 @@ import './index.css';
 import AppContainer from './components/App';
 import UpdateData from './components/UpdateData';
 import registerServiceWorker from './registerServiceWorker';
+
+// ie support 
 import 'core-js/fn/array/find';
 import 'core-js/fn/array/from';
 import 'core-js/es6/reflect';
 import 'core-js/es6/number';
 import fetch from 'unfetch';
 
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { ApolloClient } from 'apollo-client';
 import { HttpLink } from 'apollo-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';

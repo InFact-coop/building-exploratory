@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 
+// componentWillMount
+
 
 class UpdateData extends Component {
-
 
   constructor(props) {
     super(props);
@@ -21,11 +22,11 @@ class UpdateData extends Component {
       }
     })
       .then(res => res.json())
-      .then(data => { console.log(data) })
+      .then(data =>  console.log(data, '<<<< data'))
+      .catch(err => console.log(err, 'error updating data')); // we don't get in here
   }
 
 
-  componentWillMount
   render () {
     return (
       <div>
