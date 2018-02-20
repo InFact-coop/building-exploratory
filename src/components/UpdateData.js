@@ -10,14 +10,15 @@ class UpdateData extends Component {
     this.state = {
       isUpdating: false,
       error: null,
-      data: [],
-      updatedSuccessfully: null
+      message: null
     }
   }
 
   handleUpdatingData = () => {
     this.setState({
-      isUpdating: true
+      isUpdating: true,
+      error: null,
+      message: null,
     }, () => {
       console.log(this.state.isUpdating, 'is updating')
       fetch(`/api/push-latest-changes-from-google-sheet`, {
@@ -30,12 +31,18 @@ class UpdateData extends Component {
       .then(data =>  {
         this.setState({
           isUpdating: false,
-          updatedSuccessfully: true
+          message: "You've successfully added the new data"
         })
         console.log(data, '<<<< data')
         console.log(this.state.updatedSuccessfully, 'updated')
       })
-      .catch(err => console.log(err, 'error updating data'));
+      .catch(err => {
+        this.setState({
+          isUpdating: false,
+          error: true,
+          message: "Error occured when uploading data"
+        })
+      });
     })
   }
 
@@ -50,7 +57,16 @@ class UpdateData extends Component {
       </header>
       <main className="flex flex-column vh-50 items-center justify-center">
         <p className="primary">Click below to populate the site with data from the database</p>
-        <div onClick={ () => this.handleUpdatingData() } className="bg-primary white f1 pointer pv2 ph4"> Update Data </div>
+        <div onClick={ () => this.handleUpdatingData() } className="bg-primary white f2 pointer pv2 ph4">
+          {
+            !this.state.isUpdating ? 'Update Data' : 'Updating...'
+          }
+        </div>
+        <div className="primary mt3 f3 ">
+          {
+            this.state.message && this.state.message
+          }
+        </div>
       </main>
       </div>
     )

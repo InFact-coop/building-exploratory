@@ -16,8 +16,7 @@ app.use('/api/push-latest-changes-from-google-sheet', (req,res) => {
   migrate(() => {
     console.log('done');
     res.json({
-      type: 500,
-      message: 'something from server'
+      type: "done",
     });
   })
 });
