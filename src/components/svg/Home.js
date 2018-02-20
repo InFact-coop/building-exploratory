@@ -2,9 +2,8 @@ import React from 'react';
 
 const Home = () => {
   return (
-    <svg role="img" aria-label="Home" width="60px" height="100px" viewBox="0 0 313 514" version="1.1">
-    <title>Home_building</title>
-      <desc>Created with Sketch.</desc>
+    <svg width="60px" height="100px" viewBox="0 0 313 514" version="1.1">
+    <title>Home Building</title>
       <defs>
         <rect id="path-1" x="40" y="117" width="56" height="5"></rect>
         <rect id="path-2" x="56" y="144" width="85" height="6"></rect>
@@ -119,4 +118,3 @@ const Home = () => {
 }
 
 export default Home;
-

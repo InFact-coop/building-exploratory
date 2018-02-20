@@ -2,9 +2,8 @@ import React from 'react';
 
 const Other = () => {
   return (
-    <svg role="img" aria-label="Other Structure"  width="60px" height="100px" viewBox="0 0 103 509" version="1.1">
-    <title>other</title>
-      <desc>Created with Sketch.</desc>
+    <svg width="60px" height="100px" viewBox="0 0 103 509" version="1.1">
+    <title>Other Structure</title>
       <defs></defs>
       <g id="illustrations" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
         <g id="Other-Historic-Structure" transform="translate(-200.000000, -87.000000)">
@@ -56,4 +55,3 @@ const Other = () => {
 }
 
 export default Other;
-

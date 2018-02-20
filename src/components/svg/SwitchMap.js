@@ -3,8 +3,6 @@ import React from 'react';
 const SwitchMap = () => {
 return (
   <svg width="55px" height="45px" viewBox="0 0 445 345" version="1.1" >
-  <title>noun_943099_cc</title>
-  <desc>Created with Sketch.</desc>
   <defs></defs>
   <g id="Page-1" stroke="none" strokeWidth="1" fill="#000000" fillRule="nonzero">
   <g id="noun_943099_cc" transform="translate(-1.000000, -1.000000)" fillRule="nonzero" fill="#000000">
