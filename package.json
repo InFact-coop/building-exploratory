@@ -46,7 +46,7 @@
     "express-graphql": "^0.6.11",
     "graphql": "^0.11.7",
     "graphql-tag": "^2.5.0",
-    "mapbox-gl": "^0.42.2",
+    "mapbox-gl": "^0.43.0",
     "mongoose": "^4.13.2",
     "react": "^16.1.1",
     "react-apollo": "^2.0.1",
