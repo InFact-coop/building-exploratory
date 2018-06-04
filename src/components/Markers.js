@@ -13,6 +13,10 @@ const Markers = ({
 }) => {
 
 const allMarkers = buildings.length > 0 && buildings.map((buildingObj, i) => {
+    if (!buildingObj.latitude || !buildingObj.longitude) {
+      return null
+    }
+    
     return (
       <Marker
       key={i}
