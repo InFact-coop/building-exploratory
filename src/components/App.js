@@ -11,7 +11,7 @@ import About from './About';
 import SwitchMap from './svg/SwitchMap';
 
 const mapCenter = [-0.1058, 51.5465];
-const mapZoom = 11.5;
+const mapZoom = 12.2;
 
 class App extends Component {
   constructor(props) {
@@ -144,7 +144,6 @@ const query = gql`
       street_number
       street_name
       postcode
-      ward
       building_name
       display_name
       conservation_area
@@ -156,7 +155,6 @@ const query = gql`
       description
       date_local_listing
       significance
-      recommendation
       latitude
       longitude
       featured_image

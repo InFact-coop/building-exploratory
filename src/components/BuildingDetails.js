@@ -66,7 +66,6 @@ class BuildingDetails extends Component {
          case (building_type.includes('Public')):
            return <Public />;
          default:
-         console.log('DEAFULT');
            return (
              <Other />
            );

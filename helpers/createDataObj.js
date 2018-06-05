@@ -8,6 +8,7 @@ const createDataObj = (data) => {
       display_name = item['Lower Case Street Name'];
     }
 
+
     return {
       id: ++i,
       street_number: item['Street Number'],
@@ -34,7 +35,7 @@ const createDataObj = (data) => {
       fourth_image: item['Fourth Image'],
       fifth_image: item['Fifth Image']
     };
-  });
+  }).filter((item) => item.latitude && item.longitude);
 }
 
 module.exports = createDataObj;

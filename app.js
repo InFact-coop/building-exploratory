@@ -12,9 +12,7 @@ app.use('/InFact-coop/building-exploratory/', express.static(path.resolve(__dirn
 app.use('/graphql', graphQL);
 
 app.use('/api/push-latest-changes-from-google-sheet', (req,res) => {
-  console.log('you are in push data latest api') // not logigng
   migrate(() => {
-    console.log('done');
     res.json({
       type: "done",
     });

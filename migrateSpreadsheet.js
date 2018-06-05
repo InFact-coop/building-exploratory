@@ -10,7 +10,6 @@ module.exports = (callback) => {
     callback();
   };
 
-  console.log('you are getting in here...')
   tabletop.init({
     key: process.env.GOOGLE_SPREADSHEET_KEY,
     callback: showInfo,
@@ -18,4 +17,3 @@ module.exports = (callback) => {
     parseNumbers: true
   });
 };
-
