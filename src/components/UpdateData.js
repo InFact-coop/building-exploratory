@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 
-// componentWillMount
-
-
 class UpdateData extends Component {
 
   constructor(props) {
@@ -20,7 +17,6 @@ class UpdateData extends Component {
       error: null,
       message: null,
     }, () => {
-      console.log(this.state.isUpdating, 'is updating')
       fetch(`/api/push-latest-changes-from-google-sheet`, {
         headers: {
           'Content-Type': 'application/json',
@@ -33,8 +29,6 @@ class UpdateData extends Component {
           isUpdating: false,
           message: "You've successfully added the new data"
         })
-        console.log(data, '<<<< data')
-        console.log(this.state.updatedSuccessfully, 'updated')
       })
       .catch(err => {
         this.setState({

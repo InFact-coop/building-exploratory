@@ -8,6 +8,7 @@ const createDataObj = (data) => {
       display_name = item['Lower Case Street Name'];
     }
 
+
     return {
       id: ++i,
       street_number: item['Street Number'],
@@ -15,7 +16,7 @@ const createDataObj = (data) => {
       building_name: item['Lower Case Building Name'],
       display_name: display_name,
       postcode: item['Post Code'],
-      ward: item['Ward'],
+      // ward: item['Ward'],
       conservation_area: item['Conservation Area'],
       date_built_actual: item['Date Built (actual)'],
       date_built_estimate: item['Date Built (estimated/ unconfirmed)'],
@@ -24,8 +25,8 @@ const createDataObj = (data) => {
       current_use: item['Current Use'],
       description: item['Description of Building'],
       date_local_listing: item['Date of Local Listing'],
-      significance: item['Significance Statement'],
-      recommendation: item['Recommendation'],
+      significance: item['Historic Significance'],
+      // recommendation: item['Recommendation'],
       latitude: item['Latitude'],
       longitude: item['Longitude'],
       featured_image: item['Featured Image'],
@@ -34,7 +35,7 @@ const createDataObj = (data) => {
       fourth_image: item['Fourth Image'],
       fifth_image: item['Fifth Image']
     };
-  });
+  }).filter((item) => item.latitude && item.longitude);
 }
 
 module.exports = createDataObj;

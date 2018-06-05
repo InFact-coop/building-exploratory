@@ -12,7 +12,7 @@ mongoose.connect(DB_URI, { useMongoClient: true }).then(db => {
     console.log("connected to mongoose");
   });
 }).catch((error)=> {
-  console.log(error);
+  console.error(error);
 });
 
 const islingtonSchema = new Schema({

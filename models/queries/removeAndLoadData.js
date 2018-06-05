@@ -8,7 +8,7 @@ const removeAndLoadData = async (requiredData) => {
     console.log(`successfully added ${requiredData.length} buildings`);
     process.exit();
   } catch (err) {
-    console.log(`oops, something has gone wrong ${err}`);
+    console.error(`oops, something has gone wrong ${err}`);
   }
 };
 

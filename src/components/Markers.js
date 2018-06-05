@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 
-import { Marker } from 'react-map-gl';
+import { Marker, Cluster, Clusters } from 'react-map-gl';
 
 import MarkerFilled from './svg/MarkerFilled';
 import MarkerEmpty from './svg/MarkerEmpty';
 
+console.log(Cluster, Clusters, 'hello')
 
 
 const Markers = ({
@@ -13,6 +14,11 @@ const Markers = ({
 }) => {
 
 const allMarkers = buildings.length > 0 && buildings.map((buildingObj, i) => {
+
+    if (!buildingObj.latitude || !buildingObj.longitude) {
+      return null
+    }
+
     return (
       <Marker
       key={i}
