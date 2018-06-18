@@ -14,7 +14,7 @@ const BuildingExploratory = () => {
 
       <p>For further information about our activities and the Our Eyes on
       Islington project, please
-      {" "} <a href="www.buildingexploratory.org.uk" target="_blank" className="red link">visit our website</a> {" "}
+      {" "} <a href="http://www.buildingexploratory.org.uk" target="_blank" className="red link">visit our website</a> {" "}
       or email <a href="mailto:mail@buildingexploratory.org.uk" className="red link">mail@buildingexploratory.org.uk</a> </p>
     </section>
   )

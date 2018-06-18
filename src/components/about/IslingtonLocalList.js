@@ -37,7 +37,7 @@ const IslingtonLocalList = () => {
       borough also has a number of designated archaeological priority areas.</p>
 
       <p>Visit {" "}
-      <a href="https://www.islington.gov.uk/planning/designandconservation/locally_listed_buildings" className="red link">here</a>
+      <a href="https://www.islington.gov.uk/planning/designandconservation/locally_listed_buildings" target="_blank" className="red link">here</a>
       {" "} for further information about Islington’s policies relating to locally
       listed buildings
       </p>
