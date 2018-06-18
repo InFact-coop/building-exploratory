@@ -7,7 +7,7 @@ import BuildingDetails from './BuildingDetails';
 import Nav from './Nav';
 import Footer from './Footer';
 import BuildingsList from './BuildingsList';
-import About from './About';
+import About from './about/About';
 import SwitchMap from './svg/SwitchMap';
 
 const mapCenter = [-0.1058, 51.5465];
