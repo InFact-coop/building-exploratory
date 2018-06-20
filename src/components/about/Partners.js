@@ -2,6 +2,7 @@ import React from 'react'
 
 import historicEngland from '../../assets/img/historic-england.jpg';
 import islington from '../../assets/img/islington.jpg';
+import islingtonSociety from '../../assets/img/islington-society.jpg';
 
 const Partners = () => {
   return (
@@ -35,15 +36,20 @@ const Partners = () => {
       </section>
 
       <section className="w-100 pv2">
-        <div className="flex align-center justify-start">
-          <div>
+        <div className="flex flex-column flex-row-ns align-center-ns justify-start-ns">
+          <div className="pr2-ns flex justify-center">
           <a href="https://historicengland.org.uk" target="_blank">
             <img className="w5" alt="Partner: Historic England" src={historicEngland} />
           </a>
           </div>
-          <div>
+          <div className="pl2-ns pr2-ns flex justify-center">
           <a href="https://www.islington.gov.uk/planning/designandconservation" target="_blank">
             <img className="w5 pt1 pt2-ns" alt="Partner: London Borough of Islington" src={islington} />
+          </a>
+          </div>
+          <div className="pl2-ns pr2 flex justify-center items-center-ns">
+          <a href="https://www.islingtonsociety.org.uk" target="_blank">
+            <img className="w5 pt1 pt2-ns" alt="Partner: The Islington Society" src={islingtonSociety} />
           </a>
           </div>
         </div>

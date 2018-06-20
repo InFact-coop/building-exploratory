@@ -32,10 +32,14 @@ const Footer = () => {
       <section className="w-33-l pa2">
         <div className="flex items-center justify-center justify-end-l">
           <div>
-          <img className="w5" alt="Partner: Historic England" src={historicEngland} />
+          <a href="https://historicengland.org.uk" target="_blank">
+            <img className="w5" alt="Partner: Historic England" src={historicEngland} />
+          </a>
           </div>
           <div>
-          <img className="w5" alt="Partner: London Borough of Islington" src={islington} />
+            <a href="https://www.islington.gov.uk/planning/designandconservation" target="_blank">
+              <img className="w5" alt="Partner: London Borough of Islington" src={islington} />
+            </a>
           </div>
         </div>
       </section>
