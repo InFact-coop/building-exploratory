@@ -6,7 +6,6 @@ const removeAndLoadData = async (requiredData) => {
     await islington.insertMany(requiredData);
     await islington.find();
     console.log(`successfully added ${requiredData.length} buildings`);
-    process.exit();
   } catch (err) {
     console.error(`oops, something has gone wrong ${err}`);
   }
