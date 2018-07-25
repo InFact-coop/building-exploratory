@@ -5,7 +5,7 @@ const Volunteers = () => {
   return(
     <div>
       <section className="pt4 pt0-l bt bn-l b--primary bw1 lh-copy">
-        <h2 className="f4">Thank You to All Our Volunteers!!</h2>
+        <h2 className="f4">Thank You to All Our Volunteers!</h2>
         <p>Our Eyes on Islington demonstrates the significant contribution local
         communities can make to documenting and caring for their local historic
         environment. The project stimulated high levels of engagement and
