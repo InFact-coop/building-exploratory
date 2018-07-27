@@ -56,7 +56,7 @@ const Volunteers = () => {
           <p className="mv1 ph1 w-20-ns w-25-l">Luigi  Indri</p>
           <p className="mv1 ph1 w-20-ns w-25-l">Martin  Press</p>
           <p className="mv1 ph1 w-20-ns w-25-l">Michael  Gwinnell</p>
-          <p className="mv1 ph1 w-20-ns w-25-l">Patricia (Patsy) Bradbury </p>
+          <p className="mv1 ph1 w-20-ns w-25-l">Patricia Bradbury </p>
           <p className="mv1 ph1 w-20-ns w-25-l"> Patrick  Booth</p>
           <p className="mv1 ph1 w-20-ns w-25-l">Peter Fuller</p>
           <p className="mv1 ph1 w-20-ns w-25-l"> Richard  Wallington</p>
