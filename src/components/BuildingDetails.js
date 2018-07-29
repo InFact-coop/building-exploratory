@@ -12,6 +12,8 @@ import BuildingFact from "./BuildingFact.js";
 import BuildingImage from "./BuildingImage";
 import Location from "./svg/Location";
 
+import optimiseImage from "../utils/optimiseImage";
+
 class BuildingDetails extends Component {
   constructor(props) {
     super(props);
@@ -70,34 +72,39 @@ class BuildingDetails extends Component {
       }
     };
 
-    return (
-      <main className="pa4 primary">
+
+    const imageArr = [featured_image, second_image, third_image, fourth_image, fifth_image]
+    const buildingImages = imageArr.map((image, i) => {
+      if (image.length > 0) {
+        const formattedImage = optimiseImage(image, "w_auto,q_30");
+        return <BuildingImage key={i} image={formattedImage} />;
+      }
+    });
+
+    return <main className="pa4 primary">
         <header>
           <div>
-            <div
-              className="tr"
-              role="button"
-              onClick={() => {
-                handleClosingBuildingDetails();
-              }}
-            >
+            <div className="tr" role="button" onClick={() => {
+              handleClosingBuildingDetails();
+            }}>
               <GridIcon />
             </div>
             <div>
               <div className="flex items-end mb4">
                 {buildingType()}
                 <div className="pl3 w-80">
-                  {building_name && <h2 className="ma0 f3 ttc">{building_name}</h2>}
+                  {building_name && <h2 className="ma0 f3 ttc">
+                      {building_name}
+                    </h2>}
                   <h2 className="ma0 f3 ttc">
-                    {street_number}{" "}{street_name}
+                    {street_number} {street_name}
                   </h2>
                   <h4 className="ma0 tt4 fw5 f5">
                     {" "}
                     <span>
                       {" "}
                       <Location />{" "}
-                    </span>{" "}
-                    {postcode}{" "}
+                    </span> {postcode}{" "}
                   </h4>
                 </div>
               </div>
@@ -116,20 +123,11 @@ class BuildingDetails extends Component {
             <BuildingFact factName="Building Type" fact={building_type} />
           </div>
           <div className="flex">
-            <BuildingFact
-              factName="Conservation Area"
-              fact={conservation_area}
-            />
-            <BuildingFact
-              factName="Architectural Style"
-              fact={architectural_style}
-            />
+            <BuildingFact factName="Conservation Area" fact={conservation_area} />
+            <BuildingFact factName="Architectural Style" fact={architectural_style} />
           </div>
           <div className="flex">
-            <BuildingFact
-              factName="Date of Local Listing"
-              fact={date_local_listing}
-            />
+            <BuildingFact factName="Date of Local Listing" fact={date_local_listing} />
             <BuildingFact factName="Current Use" fact={current_use} />
           </div>
         </section>
@@ -140,14 +138,9 @@ class BuildingDetails extends Component {
         </section>
 
         <section>
-          <BuildingImage image={featured_image} />
-          {second_image && <BuildingImage image={second_image} />}
-          {third_image && <BuildingImage image={third_image} />}
-          {fourth_image && <BuildingImage image={fourth_image} />}
-          {fifth_image && <BuildingImage image={fifth_image} />}
+         {buildingImages}
         </section>
-      </main>
-    );
+      </main>;
   }
 }
 
