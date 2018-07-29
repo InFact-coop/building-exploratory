@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import resizeCloudinaryImg from '../utils/resizeCloudinaryImg';
+import optimiseImage from '../utils/optimiseImage';
 
 class BuildingCard extends Component {
 
@@ -20,7 +20,7 @@ class BuildingCard extends Component {
   render() {
     const { building, handleBuildingDetails } = this.props;
 
-    const optimisedImg = resizeCloudinaryImg(building.featured_image, 'c_scale,q_50,w_250');
+    const optimisedImg = optimiseImage(building.featured_image, 'c_scale,q_50,w_250');
 
     const imgStyle = {
       backgroundImage: `url(${optimisedImg})`,

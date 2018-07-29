@@ -5,9 +5,6 @@ import { Marker, Cluster, Clusters } from 'react-map-gl';
 import MarkerFilled from './svg/MarkerFilled';
 import MarkerEmpty from './svg/MarkerEmpty';
 
-console.log(Cluster, Clusters, 'hello')
-
-
 const Markers = ({
   buildings = [], handleBuildingDetails, hoveringItem, selectedBuilding,
   goToViewport, hovering, id, selectedBuildingId
